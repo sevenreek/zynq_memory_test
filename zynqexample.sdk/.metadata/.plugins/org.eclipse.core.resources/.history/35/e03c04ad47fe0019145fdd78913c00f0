@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include "platform.h"
+
+#include "xparameters.h"
+
+
+#include "xstatus.h"
+
+#include "memtest_controller.h"
+
+
+int main()
+{
+    init_platform();
+    uart_begin();
+    memtest_performTest(8,MTESTMODE_DEADBEEF);
+
+    cleanup_platform();
+    return 0;
+}

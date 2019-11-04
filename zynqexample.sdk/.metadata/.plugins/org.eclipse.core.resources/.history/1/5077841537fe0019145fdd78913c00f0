@@ -1,0 +1,90 @@
+/*
+ * memtest_controller.c
+ *
+ *  Created on: Nov 3, 2019
+ *      Author: Dickbutt
+ */
+
+
+extern char memtest_cfg_printCorrect = TRUE;
+extern char memtest_cfg_printError	 = TRUE;
+extern unsigned int memtest_cfg_wordCount = 128;
+extern unsigned int memtest_cfg_stopAddress = MEMORY_BASE_ADDRESS + sizeof(unsigned int)*memtest_cfg_wordCount;
+
+
+void metest_setWordCount(unsigned int wordCount)
+{
+	memtest_cfg_wordCount = wordCount;
+	memtest_cfg_stopAddress = MEMORY_BASE_ADDRESS + sizeof(unsigned int)*memtest_cfg_wordCount;
+}
+
+void memtest_writeRegister(unsigned int address, unsigned int value)
+{
+	*((volatile unsigned int*)address) = value;
+}
+unsigned int memtest_readRegister(unsigned int address)
+{
+	return *((volatile unsigned int*)address);
+}
+
+unsigned int getNextPattern(unsigned int counter, enum MemTestModes mode)
+{
+	switch(mode)
+	{
+		case MTESTMODE_DEADBEEF:
+			return 0xDEADBEEF;
+		break;
+		case MTESTMODE_WALKINGONE:
+			return 1UL << (counter%32);
+		break;
+		default:
+		break;
+	}
+}
+
+void memtest_performTest(unsigned int wordCount, enum MemTestModes mode)
+{
+	for(unsigned int counter = 0; counter < wordCount; counter++)
+	{
+		unsigned int currentAddress =  MEMORY_BASE_ADDRESS + sizeof(unsigned int)*counter;
+		unsigned int pattern = getNextPattern(counter, mode);
+		memtest_writeRegister(currentAdress, pattern);
+	}
+	unsigned int errorCount = 0;
+	for(unsigned int counter = 0; counter < wordCount; counter++)
+	{
+		unsigned int currentAddress =  MEMORY_BASE_ADDRESS + sizeof(unsigned int)*counter;
+		unsigned int expectedPattern = getNextPattern(counter, mode);
+		unsigned int writtenPattern = memtest_writeRegister(currentAdress);
+		if(expectedPattern != writtenPattern)
+		{
+			errorCount++;
+			if(memtest_cfg_printError == TRUE)
+			{
+				memtest_writeVerboseMessage(currentAddress, writtenPattern, FALSE);
+			}
+		}
+		else if (memtest_cfg_printCorrect == TRUE)
+		{
+			memtest_writeVerboseMessage(currentAddress, writtenPattern, TRUE);
+		}
+	}
+}
+void memtest_writeVerboseMessage(unsigned int address, unsigned int value, char correct)
+{
+	unsigned char string[MEMTEST_STRLEN_VERBOSE];
+	unsigned int stringlength = sprintf(string, "%#010x = %#010x [%c]", address, value, correct?'O':'X');
+	uart_write(string,stringlength+1);
+}
+void memtest_writeTestResult(unsigned int wordsWritten, unsigned int errors, enum MemTestModes mode)
+{
+	unsigned char string[MEMTEST_STRLEN_RESULT];
+	unsigned int stringlength = sprintf(
+		string, "Test result:\n\r"
+				"MODE: %c\n\r"
+				"WORD COUNT: %d\n\r"
+				"ERROR COUNT: %d\n\r", mode, value, correct?'O':'X'
+	);
+	uart_write(string,stringlength+1);
+}
+

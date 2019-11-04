@@ -1,0 +1,88 @@
+/*
+ * menu_controller.c
+ *
+ *  Created on: Nov 3, 2019
+ *      Author: Dickbutt
+ */
+#include "menu_controller.h"
+
+
+
+enum MemTestModes config_memoryTestMode = MTESTMODE_DEADBEEF;
+unsigned int config_memoryTestSize = 0;
+enum MemTestVerbosity config_memoryTestVerbosity;
+void menu_writeMain()
+{
+	unsigned char string[MENU_STRLEN_MAIN];
+	unsigned int stringlength = sprintf(
+			(char*)string,
+			"Memory test:\n\r"
+			"\tm - switch test mode\n\r"
+			"\ts - switch test size\n\r"
+			"\tv - switch test verbosity\n\r"
+			);
+	uart_write(string,stringlength);
+	menu_awaitInput();
+}
+void menu_writeMemoryTestResponse(unsigned int wordRead, char valid)
+{
+
+}
+void menu_writeMemoryTestComplete(unsigned int correctWords, unsigned int testedWords)
+{
+
+}
+char menu_getChar()
+{
+	return uart_getchar();
+}
+void menu_awaitInput()
+{
+	char c = menu_getChar();
+	switch(c)
+	{
+		case 'm':
+
+		break;
+		case 's':
+
+		break;
+		case 'v':
+
+		break;
+		default:
+		break;
+	}
+}
+char* menu_getVerbosity(enum MemTestVerbosity verbosity)
+{
+	switch(verbosity)
+	{
+		case MTESTVERBOSITY_NONE:
+			return "NONE";
+			break;
+		case MTESTVERBOSITY_BAD:
+			return "ON ERROR";
+			break;
+		case MTESTVERBOSITY_ALL:
+			return "ON ALL";
+			break;
+		default: return "???";
+			break;
+	}
+}
+char* menu_getTestMode(enum MemTestModes mode)
+{
+	switch(mode)
+	{
+		case MTESTMODE_DEADBEEF:
+			return "0xDEADBEEF";
+			break;
+		case MTESTMODE_WALKINGONE:
+			return "WALKING ONE";
+			break;
+		default: return "???";
+			break;
+	}
+}
+

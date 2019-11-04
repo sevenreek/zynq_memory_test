@@ -1,0 +1,100 @@
+#include <stdio.h>
+#include "platform.h"
+
+#include "xparameters.h"
+
+
+#include "xstatus.h"
+
+#include "memtest_controller.h"
+
+
+int main()
+{
+    init_platform();
+    uart_begin();
+
+
+    cleanup_platform();
+    return 0;
+}
+int configureMIO(XScuGic *interruptController, XGpioPs *GPIO_MIO, u16 deviceID, u16 gpioInterruptID)
+{
+	int xilOperationResult;
+	XGpioPs_Config *MIOConfig;
+	MIOConfig = XGpioPs_LookupConfig(deviceID);
+	xilOperationResult = XGpioPs_CfgInitialize(GPIO_MIO, MIOConfig,  MIOConfig->BaseAddr);
+	if(xilOperationResult != XST_SUCCESS) return XST_FAILURE;
+	xilOperationResult = XGpioPs_SelfTest(GPIO_MIO);
+	if(xilOperationResult != XST_SUCCESS) return XST_FAILURE;
+	XGpioPs_SetDirectionPin(GPIO_MIO, BTN_PINS[0], PIN_DIRECTION_INPUT);
+	XGpioPs_SetDirectionPin(GPIO_MIO, BTN_PINS[1], PIN_DIRECTION_INPUT);
+	xilOperationResult = configureInterruptSystem(interruptController, GPIO_MIO, gpioInterruptID);
+	if(xilOperationResult != XST_SUCCESS) return XST_FAILURE;
+
+}
+int configureInterruptSystem(XScuGic *interruptController, XGpioPs * GPIO, u16 GPIOInterruptID)
+{
+	int functionResult;
+
+	interruptControllerConfiguration = XScuGic_LookupConfig(
+			XPAR_SCUGIC_SINGLE_DEVICE_ID
+			);
+	if(NULL == interruptControllerConfiguration) return XST_FAILURE;
+	functionResult = XScuGic_CfgInitialize(
+			interruptController,
+			interruptControllerConfiguration,
+			interruptControllerConfiguration->CpuBaseAddress
+			);
+	if(XST_FAILURE == functionResult) return XST_FAILURE;
+	Xil_ExceptionRegisterHandler(
+			XIL_EXCEPTION_ID_INT,
+			(Xil_ExceptionHandler)XScuGic_InterruptHandler,
+			interruptController
+			);
+	functionResult = XScuGic_Connect(
+			interruptController,
+			GPIOInterruptID,
+			(Xil_ExceptionHandler)XGpioPs_IntrHandler,
+			(void *)GPIO
+			);
+	if(XST_FAILURE == functionResult) return XST_FAILURE;
+
+	XGpioPs_SetIntrType(GPIO, BUTTONS_BANK, BUTTONS_MASK, 0, 0);
+
+	XGpioPs_SetCallbackHandler(GPIO, (void *)GPIO, IRQ_buttonPress);
+	XGpioPs_IntrEnable(GPIO, BUTTONS_BANK, BUTTONS_MASK);
+	XScuGic_Enable(interruptController, GPIOInterruptID);
+	Xil_ExceptionEnableMask(XIL_EXCEPTION_IRQ);
+
+	return XST_SUCCESS;
+}
+static void IRQ_buttonPress(void *CallBackRef, u32 Bank, u32 Status)
+{
+	XGpioPs *Gpio = (XGpioPs *)CallBackRef;
+	int btnVal[2];
+	btnVal[0] = XGpioPs_ReadPin(Gpio, BTN_PINS[0]);
+	btnVal[1] = XGpioPs_ReadPin(Gpio, BTN_PINS[1]);
+	if(!btnVal[0])
+		leds |= 0b0001;
+	else if (!btnVal[1])
+		leds &= 0b1110;
+	XGpioPs_IntrClear(Gpio,BUTTONS_BANK,BUTTONS_MASK);
+}
+int createButtonsMask()
+{
+	u32 mask = 0;
+	u8 bankNumber = 0, pinNumberInBank = 0;
+	XGpioPs_GetBankPin(46,&bankNumber,&pinNumberInBank);
+	mask |= ((1UL) << pinNumberInBank);
+
+	XGpioPs_GetBankPin(47,&bankNumber,&pinNumberInBank);
+	mask |= ((1UL) << pinNumberInBank);
+
+	XGpioPs_GetBankPin(50,&bankNumber,&pinNumberInBank);
+	mask |= ((1UL) << pinNumberInBank);
+
+	XGpioPs_GetBankPin(51,&bankNumber,&pinNumberInBank);
+	mask |= ((1UL) << pinNumberInBank);
+	return mask;
+}

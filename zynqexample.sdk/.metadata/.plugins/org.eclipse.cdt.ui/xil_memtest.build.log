@@ -1,0 +1,8 @@
+17:45:34 **** Incremental Build of configuration Debug for project xil_memtest ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+
+17:45:34 Build Finished (took 385ms)
+

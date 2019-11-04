@@ -1,0 +1,10 @@
+#ifndef SRC_UART_CONTROLLER_H_
+#define SRC_UART_CONTROLLER_H_
+
+#include "xuartlite.h"
+#include "xuartlite_l.h"
+XUartLite uart_xMainDriver;
+#define UART_BASEADDRESS	   XPAR_UARTLITE_0_BASEADDR
+
+#endif /* SRC_UART_CONTROLLER_H_ */
+

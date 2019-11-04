@@ -1,0 +1,60 @@
+/*
+ * menu_controller.c
+ *
+ *  Created on: Nov 3, 2019
+ *      Author: Dickbutt
+ */
+#include "menu_controller.h"
+
+
+
+char config_memoryTestMode;
+unsigned int config_memoryTestSize;
+enum MemTestVerbosity config_memoryTestVerbosity;
+void menu_writeMain()
+{
+	unsigned char string[MENU_STRLEN_MAIN];
+	unsigned int stringlength = sprintf(
+			(char*)string,
+			"Memory test:\n\r"
+			"\tm - switch test mode\n\r"
+			"\ts - switch test size\n\r"
+			"\tv - switch test verbosity\n\r"
+			);
+	uart_write(string,stringlength);
+	menu_awaitInput();
+}
+void menu_writeMemoryTestResponse(unsigned int wordRead, char valid)
+{
+
+}
+void menu_writeMemoryTestComplete(unsigned int correctWords, unsigned int testedWords)
+{
+
+}
+char menu_getChar()
+{
+	return uart_getchar();
+}
+void menu_awaitInput()
+{
+	char c = menu_getChar();
+	switch(c)
+	{
+		case 'm':
+
+		break;
+		case 's':
+
+		break;
+		case 'v':
+
+		break;
+		default:
+		break;
+	}
+}
+char* menu_getVerbosity(enum MemTestVerbosity verbosity)
+{
+
+}

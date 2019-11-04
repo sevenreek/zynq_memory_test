@@ -1,0 +1,22 @@
+/*
+ * memtest_controller.h
+ *
+ *  Created on: Nov 3, 2019
+ *      Author: Dickbutt
+ */
+
+#ifndef SRC_MEMTEST_CONTROLLER_H_
+#define SRC_MEMTEST_CONTROLLER_H_
+
+#define MEMORY_BASE_ADDRESS XPAR_PS7_DDR_0_S_AXI_BASEADDR
+#define MEMORY_END_ADDRESS XPAR_PS7_DDR_0_S_AXI_HIGHADDR
+
+char memtest_cfg_printVerbose;
+unsigned int memtest_cfg_wordCount;
+unsigned int memtest_cfg_stopAddress;
+enum MemTestModes {
+	MTESTMODE_DEADBEEF,
+	MTESTMODE_WALKINGONE,
+};
+
+#endif /* SRC_MEMTEST_CONTROLLER_H_ */

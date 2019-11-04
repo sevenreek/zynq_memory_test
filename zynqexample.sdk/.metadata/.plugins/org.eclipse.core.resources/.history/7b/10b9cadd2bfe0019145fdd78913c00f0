@@ -1,0 +1,6 @@
+#ifndef SRC_UART_CONTROLLER_H_
+#define SRC_UART_CONTROLLER_H_
+#include "xuartlite.h"
+XUartLite xMainDriver;
+
+#endif /* SRC_UART_CONTROLLER_H_ */

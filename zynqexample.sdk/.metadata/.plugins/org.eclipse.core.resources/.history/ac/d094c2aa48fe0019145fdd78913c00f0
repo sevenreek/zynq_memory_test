@@ -1,0 +1,14 @@
+/*
+ * menu_controller.h
+ *
+ *  Created on: Nov 3, 2019
+ *      Author: Dickbutt
+ */
+#include <stdio.h>
+#ifndef SRC_MENU_CONTROLLER_H_
+#define SRC_MENU_CONTROLLER_H_
+
+#include "uart_controller.h"
+#define MENU_STRLEN_MAIN 64
+
+#endif /* SRC_MENU_CONTROLLER_H_ */

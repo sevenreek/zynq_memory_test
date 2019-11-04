@@ -1,0 +1,22 @@
+/*
+ * uart_controller.c
+ *
+ *  Created on: Nov 3, 2019
+ *      Author: Dickbutt
+ */
+#include "uart_controller.h"
+extern XUartLite xMainDriver;
+int uart_begin()
+{
+
+}
+
+int uart_write(char * buffer, unsigned int size)
+{
+	return XUartLiteSend(&xMainDriver, buffer, size);
+}
+
+char uart_getchar()
+{
+
+}
