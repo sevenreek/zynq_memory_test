@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1572379490">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1572977683">
   <File Type="PA-TCL" Name="System_wrapper.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="System_wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="System_wrapper_reports.tcl"/>
@@ -32,13 +32,13 @@
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
     <Filter Type="Constrs"/>
-    <File Path="$PPRDIR/../MarsZX3_Starter.xdc">
+    <File Path="$PSRCDIR/constrs_1/new/gpio_test.xdc">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/constrs_1/new/gpio_test.xdc">
+    <File Path="$PSRCDIR/constrs_1/MarsZX3_Starter.xdc">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>

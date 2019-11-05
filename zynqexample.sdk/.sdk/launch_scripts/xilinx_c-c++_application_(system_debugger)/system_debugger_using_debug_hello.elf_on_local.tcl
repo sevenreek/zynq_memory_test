@@ -14,4 +14,5 @@ ps7_post_config
 targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000acb5d4001"} -index 0
 dow E:/Development/VHDL/zynquart/zynqexample.sdk/hello/Debug/hello.elf
 configparams force-mem-access 0
-bpadd -addr &main
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000acb5d4001"} -index 0
+con

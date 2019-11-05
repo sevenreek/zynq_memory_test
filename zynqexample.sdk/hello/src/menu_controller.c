@@ -8,8 +8,10 @@
 
 
 const unsigned int MEMORY_TEST_SIZES[MENU_MEMTEST_SIZE_POSSIBLITIES] = {4, 16, 64, 1024, 4096, 16384, 65536, 262144};
-enum MemTestModes config_memoryTestMode = MTESTMODE_ZEROES;
+unsigned char config_memoryTestPattern = QUICKPATTERN_ZEROES;
+unsigned char config_memoryTestModeIsDetail = MENU_TEST_MODE_QUICK;
 unsigned int config_memoryTestSize = 0;
+unsigned int config_memoryTestReadCount = 1;
 enum MemTestVerbosity config_memoryTestVerbosity = MTESTVERBOSITY_BAD;
 void menu_writeMain()
 {
@@ -17,9 +19,11 @@ void menu_writeMain()
 	unsigned int stringlength = sprintf(
 			(char*)string,
 			"Memory test:\n\r"
-			"\tm - switch test mode\n\r"
-			"\ts - switch test size\n\r"
-			"\tv - switch test verbosity\n\r"
+			"\tm - toggle mode\n\r"
+			"\tp - switch pattern\n\r"
+			"\ts - switch size\n\r"
+			"\tv - switch verbosity\n\r"
+			"\td - switch read count(RDF)\n\r"
 			"\tr - run test\n\r"
 			);
 	uart_write(string,stringlength);
@@ -40,11 +44,24 @@ void menu_awaitInput()
 		switch(c)
 		{
 			case 'm':
-				config_memoryTestMode = (config_memoryTestMode+1)%MENU_MEMTEST_MODE_POSSIBLITIES;
+				config_memoryTestModeIsDetail = (config_memoryTestModeIsDetail+1)%2;
+				config_memoryTestPattern = 0;
+				stringlength = sprintf(
+							(char*)string,
+							"mode is now %s\n\r",
+							config_memoryTestModeIsDetail?"detailed":"quick"
+							);
+				uart_write(string,stringlength);
+			break;
+			case 'p':
+				if(config_memoryTestModeIsDetail)
+					config_memoryTestPattern = (config_memoryTestPattern+1)%MENU_DETAILTEST_PATTERN_POSSIBLITIES;
+				else
+					config_memoryTestPattern = (config_memoryTestPattern+1)%MENU_QUICKTEST_PATTERN_POSSIBLITIES;
 				stringlength = sprintf(
 						(char*)string,
-						"switched to %s\n\r",
-						menu_getTestModeString(config_memoryTestMode)
+						"pattern is now %s\n\r",
+						menu_getTestModeString(config_memoryTestModeIsDetail, config_memoryTestPattern)
 						);
 				uart_write(string,stringlength);
 			break;
@@ -52,7 +69,7 @@ void menu_awaitInput()
 				config_memoryTestSize = (config_memoryTestSize+1)%MENU_MEMTEST_SIZE_POSSIBLITIES;
 				stringlength = sprintf(
 						(char*)string,
-						"switched to %dB\n\r",
+						"test size is now %dB\n\r",
 						MEMORY_TEST_SIZES[config_memoryTestSize]
 					  	);
 				uart_write(string,stringlength);
@@ -61,13 +78,25 @@ void menu_awaitInput()
 				config_memoryTestVerbosity = (config_memoryTestVerbosity+1)%MENU_MEMTEST_VERB_POSSIBLITIES;
 				stringlength = sprintf(
 						(char*)string,
-						"switched to %s\n\r",
+						"verbosity is now %s\n\r",
 						menu_getVerbosityString(config_memoryTestVerbosity)
 						);
 				uart_write(string,stringlength);
 			break;
+			case 'd':
+				config_memoryTestReadCount = (config_memoryTestReadCount+1)%MENU_MEMTEST_READCOUNT_MAX + 1;
+				stringlength = sprintf(
+						(char*)string,
+						"%d read(s) will be made\n\r",
+						config_memoryTestReadCount
+						);
+				uart_write(string,stringlength);
+			break;
 			case 'r':
-				memtest_performTest(MEMORY_TEST_SIZES[config_memoryTestSize], config_memoryTestMode);
+				if(config_memoryTestModeIsDetail)
+					memtest_performDetailTest(MEMORY_TEST_SIZES[config_memoryTestSize], config_memoryTestPattern, config_memoryTestReadCount);
+				else
+					memtest_performQuickTest(MEMORY_TEST_SIZES[config_memoryTestSize], config_memoryTestPattern, config_memoryTestReadCount);
 			break;
 			default:
 			break;
@@ -91,18 +120,45 @@ char* menu_getVerbosityString(enum MemTestVerbosity verbosity)
 			break;
 	}
 }
-char* menu_getTestModeString(enum MemTestModes mode)
+char* menu_getTestModeString(char mode, char pattern)
 {
-	switch(mode)
+	if(mode)
 	{
-		case MTESTMODE_DEADBEEF:
-			return "0xDEADBEEF";
+		switch(pattern)
+		{
+			case DETAILPATTERN_A5ALTERNATING:
+				return "A/5";
 			break;
-		case MTESTMODE_WALKINGONE:
-			return "WALKING ONE";
+			case DETAILPATTERN_WALKINGONE:
+				return "WALKINGONE";
 			break;
-		default: return "???";
+			case DETAILPATTERN_WALKINGZERO:
+				return "WALKINGZERO";
 			break;
+			default:
+				return "???";
+			break;
+		}
+	}
+	else
+	{
+		switch(pattern)
+		{
+			case QUICKPATTERN_ZEROES:
+				return "ZEROS";
+			break;
+			case QUICKPATTERN_ONES:
+				return "ONES";
+			break;
+			case QUICKPATTERN_DEADBEEF:
+				return "DEADBEEF";
+			break;
+			case QUICKPATTERN_WALKINGONE:
+				return "WALKING ONE";
+			break;
+			default: return "???";
+			break;
+		}
 	}
 }
 

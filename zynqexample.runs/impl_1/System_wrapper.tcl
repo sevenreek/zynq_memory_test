@@ -60,16 +60,12 @@ proc step_failed { step } {
   close $ch
 }
 
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 
 start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param chipscope.maxJobs 1
-  set_param synth.incrementalSynthesisCache C:/Users/Dickbutt/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-20860-DESKTOP-RP1NLIS/incrSyn
-  set_param xicom.use_bs_reader 1
   create_project -in_memory -part xc7z020clg484-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
@@ -83,8 +79,8 @@ set rc [catch {
   set_param project.isImplRun true
   add_files E:/Development/VHDL/zynquart/zynqexample.srcs/sources_1/bd/System/System.bd
   set_param project.isImplRun false
-  read_xdc E:/Development/VHDL/MarsZX3_Starter.xdc
   read_xdc E:/Development/VHDL/zynquart/zynqexample.srcs/constrs_1/new/gpio_test.xdc
+  read_xdc E:/Development/VHDL/zynquart/zynqexample.srcs/constrs_1/MarsZX3_Starter.xdc
   set_param project.isImplRun true
   link_design -top System_wrapper -part xc7z020clg484-1
   set_param project.isImplRun false

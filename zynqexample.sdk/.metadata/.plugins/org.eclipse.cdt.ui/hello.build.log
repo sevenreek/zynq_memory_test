@@ -1,8 +1,8 @@
-17:49:53 **** Incremental Build of configuration Debug for project hello ****
+19:37:19 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for 'main-build'.
 
-17:49:53 Build Finished (took 255ms)
+19:37:19 Build Finished (took 330ms)
 

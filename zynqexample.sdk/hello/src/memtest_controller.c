@@ -30,14 +30,20 @@ unsigned int memtest_readRegister(unsigned int address)
 	return *((volatile unsigned int*)address);
 }
 
-unsigned int getNextPattern(unsigned int counter, enum MemTestModes mode)
+unsigned int memtest_getNextQuickPattern(unsigned int counter, enum QuickTestPatterns mode)
 {
 	switch(mode)
 	{
-		case MTESTMODE_DEADBEEF:
+		case QUICKPATTERN_ZEROES:
+			return 0x0;
+			break;
+		case QUICKPATTERN_ONES:
+			return 0xFFFFFFFF;
+			break;
+		case QUICKPATTERN_DEADBEEF:
 			return 0xDEADBEEF;
 		break;
-		case MTESTMODE_WALKINGONE:
+		case QUICKPATTERN_WALKINGONE:
 			return 1UL << (counter%32);
 		break;
 		default:
@@ -45,32 +51,105 @@ unsigned int getNextPattern(unsigned int counter, enum MemTestModes mode)
 		break;
 	}
 }
-
-void memtest_performTest(unsigned int wordCount, enum MemTestModes mode)
+unsigned int memtest_getNextDetailPattern(unsigned int memoryPoint, unsigned char concurrentTest, enum DetailTestPatterns mode)
+{
+	switch(mode)
+	{
+		case DETAILPATTERN_A5ALTERNATING:
+			return concurrentTest%2?0xAAAAAAAA:0x55555555;
+			break;
+		case DETAILPATTERN_WALKINGONE:
+			return 1UL << ( concurrentTest % 32 );
+		break;
+		case DETAILPATTERN_WALKINGZERO:
+			return ~(1UL << ( concurrentTest % 32 ));
+		break;
+		default:
+			return 0x0;
+		break;
+	}
+}
+unsigned int memtest_getDetailPatternTestCount(enum DetailTestPatterns mode)
+{
+	switch(mode)
+	{
+		case DETAILPATTERN_A5ALTERNATING:
+			return 2;
+			break;
+		case DETAILPATTERN_WALKINGONE:
+			return 32;
+		break;
+		case DETAILPATTERN_WALKINGZERO:
+			return 32;
+		break;
+		default:
+			return 1;
+		break;
+	}
+}
+void memtest_performQuickTest(unsigned int wordCount, enum QuickTestPatterns mode, int readCount)
 {
 	for(unsigned int counter = 0; counter < wordCount; counter++)
 	{
 		unsigned int currentAddress =  MEMORY_BASE_ADDRESS + sizeof(unsigned int)*counter;
-		unsigned int pattern = getNextPattern(counter, mode);
+		unsigned int pattern = memtest_getNextQuickPattern(counter, mode);
 		memtest_writeRegister(currentAddress, pattern);
 	}
 	unsigned int errorCount = 0;
+	unsigned char currentReadCount;
+	for(unsigned int counter = 0; counter < wordCount; counter++)
+	{
+		for(currentReadCount = 0; currentReadCount < readCount; currentReadCount++)
+		{
+			unsigned int currentAddress =  MEMORY_BASE_ADDRESS + sizeof(unsigned int)*counter;
+			unsigned int expectedPattern = memtest_getNextQuickPattern(counter, mode);
+			unsigned int writtenPattern = memtest_readRegister(currentAddress);
+			if(expectedPattern != writtenPattern)
+			{
+				errorCount++;
+				if(memtest_cfg_printError == TRUE)
+				{
+					memtest_writeVerboseMessage(currentAddress, writtenPattern, FALSE);
+				}
+			}
+			else if (memtest_cfg_printCorrect == TRUE)
+			{
+				memtest_writeVerboseMessage(currentAddress, writtenPattern, TRUE);
+			}
+		}
+	}
+	memtest_writeTestResult(wordCount,errorCount,mode);
+}
+void memtest_performDetailTest(unsigned int wordCount, enum DetailTestPatterns mode, int readCount)
+{
+	unsigned int errorCount = 0;
+	unsigned char concurrentTestCount = memtest_getDetailPatternTestCount(mode);
+	unsigned char currentConcurrentTestIndex = 0;
+	unsigned char currentReadCount;
 	for(unsigned int counter = 0; counter < wordCount; counter++)
 	{
 		unsigned int currentAddress =  MEMORY_BASE_ADDRESS + sizeof(unsigned int)*counter;
-		unsigned int expectedPattern = getNextPattern(counter, mode);
-		unsigned int writtenPattern = memtest_readRegister(currentAddress);
-		if(expectedPattern != writtenPattern)
+		unsigned int pattern;
+		for(currentConcurrentTestIndex = 0; currentConcurrentTestIndex < concurrentTestCount; currentConcurrentTestIndex++)
 		{
-			errorCount++;
-			if(memtest_cfg_printError == TRUE)
+			pattern = memtest_getNextDetailPattern(counter, currentConcurrentTestIndex, mode);
+			memtest_writeRegister(currentAddress, pattern);
+			for(currentReadCount = 0; currentReadCount < readCount; currentReadCount++)
 			{
-				memtest_writeVerboseMessage(currentAddress, writtenPattern, FALSE);
+				unsigned int writtenPattern = memtest_readRegister(currentAddress);
+				if(pattern != writtenPattern)
+				{
+					errorCount++;
+					if(memtest_cfg_printError == TRUE)
+					{
+						memtest_writeVerboseMessage(currentAddress, writtenPattern, FALSE);
+					}
+				}
+				else if (memtest_cfg_printCorrect == TRUE)
+				{
+					memtest_writeVerboseMessage(currentAddress, writtenPattern, TRUE);
+				}
 			}
-		}
-		else if (memtest_cfg_printCorrect == TRUE)
-		{
-			memtest_writeVerboseMessage(currentAddress, writtenPattern, TRUE);
 		}
 	}
 	memtest_writeTestResult(wordCount,errorCount,mode);
@@ -81,7 +160,7 @@ void memtest_writeVerboseMessage(unsigned int address, unsigned int value, char 
 	unsigned int stringlength = sprintf((char*)string, "%#010x = %#010x [%s]\n\r", address, value, correct?"OK":"BAD");
 	uart_write(string,stringlength);
 }
-void memtest_writeTestResult(unsigned int wordsWritten, unsigned int errors, enum MemTestModes mode)
+void memtest_writeTestResult(unsigned int wordsWritten, unsigned int errors, enum QuickTestPatterns mode)
 {
 	unsigned char string[MEMTEST_STRLEN_RESULT];
 	unsigned int stringlength = sprintf(
