@@ -8,7 +8,7 @@
 
 
 const unsigned int MEMORY_TEST_SIZES[MENU_MEMTEST_SIZE_POSSIBLITIES]
-									 = {MENU_MEMTEST_SIZE_FULL, 4, 16, 64, 1024, 4096, 16384, 65536, 262144}; // 0 is full memory
+									 = {MEMTEST_SIZE_FULL, 4, 16, 64, 1024, 4096, 16384, 65536, 262144}; // 0 is full memory
 const unsigned int MEMORY_TEST_INCREMENTS[MENU_INCREMENT_BYTES_POSSIBILITES]
 									 = {1,4,8,1024,1024*1024};
 unsigned char config_memoryTestPattern = QUICKPATTERN_ZEROES;

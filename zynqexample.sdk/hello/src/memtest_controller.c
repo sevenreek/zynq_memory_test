@@ -89,6 +89,7 @@ unsigned int memtest_getDetailPatternTestCount(enum DetailTestPatterns mode)
 }
 void memtest_performQuickTest(unsigned int wordCount, enum QuickTestPatterns mode, int readCount, unsigned int increment)
 {
+	wordCount = wordCount==MEMTEST_SIZE_FULL?(MEMORY_HIGH_ADDRESS - MEMORY_BASE_ADDRESS + 1)/4:wordCount; //
 	for(unsigned int counter = 0; counter < wordCount; counter++)
 	{
 		unsigned int currentAddress =  MEMORY_BASE_ADDRESS + sizeof(unsigned int)*counter;
@@ -122,6 +123,7 @@ void memtest_performQuickTest(unsigned int wordCount, enum QuickTestPatterns mod
 }
 void memtest_performDetailTest(unsigned int wordCount, enum DetailTestPatterns mode, int readCount, unsigned int increment)
 {
+	wordCount = wordCount==MEMTEST_SIZE_FULL?(MEMORY_HIGH_ADDRESS - MEMORY_BASE_ADDRESS + 1)/4:wordCount; //set appropriate wordCount if parameter passed is 0
 	unsigned int errorCount = 0;
 	unsigned char concurrentTestCount = memtest_getDetailPatternTestCount(mode);
 	unsigned char currentConcurrentTestIndex = 0;
