@@ -1,5 +1,5 @@
-set_property SRC_FILE_INFO {cfile:E:/Development/VHDL/zynquart/zynqexample.srcs/constrs_1/new/gpio_test.xdc rfile:../../../zynqexample.srcs/constrs_1/new/gpio_test.xdc id:1} [current_design]
-set_property SRC_FILE_INFO {cfile:E:/Development/VHDL/zynquart/zynqexample.srcs/constrs_1/MarsZX3_Starter.xdc rfile:../../../zynqexample.srcs/constrs_1/MarsZX3_Starter.xdc id:2} [current_design]
+set_property SRC_FILE_INFO {cfile:{C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.srcs/constrs_1/new/gpio_test.xdc} rfile:../../../zynqexample.srcs/constrs_1/new/gpio_test.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:{C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.srcs/constrs_1/MarsZX3_Starter.xdc} rfile:../../../zynqexample.srcs/constrs_1/MarsZX3_Starter.xdc id:2} [current_design]
 set_property src_info {type:XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
 set_property IOSTANDARD LVCMOS25 [get_ports {gpio_rtl_0_tri_o[3]}]
 set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]

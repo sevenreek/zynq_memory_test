@@ -7,12 +7,16 @@
 #include "menu_controller.h"
 
 
-const unsigned int MEMORY_TEST_SIZES[MENU_MEMTEST_SIZE_POSSIBLITIES] = {4, 16, 64, 1024, 4096, 16384, 65536, 262144};
+const unsigned int MEMORY_TEST_SIZES[MENU_MEMTEST_SIZE_POSSIBLITIES]
+									 = {MENU_MEMTEST_SIZE_FULL, 4, 16, 64, 1024, 4096, 16384, 65536, 262144}; // 0 is full memory
+const unsigned int MEMORY_TEST_INCREMENTS[MENU_INCREMENT_BYTES_POSSIBILITES]
+									 = {1,4,8,1024,1024*1024};
 unsigned char config_memoryTestPattern = QUICKPATTERN_ZEROES;
 unsigned char config_memoryTestModeIsDetail = MENU_TEST_MODE_QUICK;
 unsigned int config_memoryTestSize = 0;
 unsigned int config_memoryTestReadCount = 1;
-enum MemTestVerbosity config_memoryTestVerbosity = MTESTVERBOSITY_BAD;
+unsigned int config_memoryTestIncrementBytesChoice = 0;
+enum MemTestVerbosity config_memoryTestVerbosity = MTESTVERBOSITY_ALL;
 void menu_writeMain()
 {
 	unsigned char string[MENU_STRLEN_MAIN];
@@ -76,6 +80,7 @@ void menu_awaitInput()
 			break;
 			case 'v':
 				config_memoryTestVerbosity = (config_memoryTestVerbosity+1)%MENU_MEMTEST_VERB_POSSIBLITIES;
+				memtest_setVerbosity(config_memoryTestVerbosity);
 				stringlength = sprintf(
 						(char*)string,
 						"verbosity is now %s\n\r",
@@ -84,7 +89,7 @@ void menu_awaitInput()
 				uart_write(string,stringlength);
 			break;
 			case 'd':
-				config_memoryTestReadCount = (config_memoryTestReadCount+1)%MENU_MEMTEST_READCOUNT_MAX + 1;
+				config_memoryTestReadCount = config_memoryTestReadCount==1?2:1;
 				stringlength = sprintf(
 						(char*)string,
 						"%d read(s) will be made\n\r",
@@ -94,9 +99,19 @@ void menu_awaitInput()
 			break;
 			case 'r':
 				if(config_memoryTestModeIsDetail)
-					memtest_performDetailTest(MEMORY_TEST_SIZES[config_memoryTestSize], config_memoryTestPattern, config_memoryTestReadCount);
+					memtest_performDetailTest(
+							MEMORY_TEST_SIZES[config_memoryTestSize],
+							config_memoryTestPattern,
+							config_memoryTestReadCount,
+							MEMORY_TEST_INCREMENTS[config_memoryTestIncrementBytesChoice]
+						   );
 				else
-					memtest_performQuickTest(MEMORY_TEST_SIZES[config_memoryTestSize], config_memoryTestPattern, config_memoryTestReadCount);
+					memtest_performQuickTest(
+							MEMORY_TEST_SIZES[config_memoryTestSize],
+							config_memoryTestPattern,
+							config_memoryTestReadCount,
+							MEMORY_TEST_INCREMENTS[config_memoryTestIncrementBytesChoice]
+						   );
 			break;
 			default:
 			break;

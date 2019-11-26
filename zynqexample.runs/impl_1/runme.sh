@@ -11,9 +11,9 @@ echo "Please update the PATH and LD_LIBRARY_PATH variables below, before executi
 exit
 
 if [ -z "$PATH" ]; then
-  PATH=E:/Programy/Vivado2019/SDK/2019.1/bin;E:/Programy/Vivado2019/Vivado/2019.1/ids_lite/ISE/bin/nt64;E:/Programy/Vivado2019/Vivado/2019.1/ids_lite/ISE/lib/nt64:E:/Programy/Vivado2019/Vivado/2019.1/bin
+  PATH=C:/Xilinx/SDK/2019.1/bin;C:/Xilinx/Vivado/2019.1/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2019.1/ids_lite/ISE/lib/nt64:C:/Xilinx/Vivado/2019.1/bin
 else
-  PATH=E:/Programy/Vivado2019/SDK/2019.1/bin;E:/Programy/Vivado2019/Vivado/2019.1/ids_lite/ISE/bin/nt64;E:/Programy/Vivado2019/Vivado/2019.1/ids_lite/ISE/lib/nt64:E:/Programy/Vivado2019/Vivado/2019.1/bin:$PATH
+  PATH=C:/Xilinx/SDK/2019.1/bin;C:/Xilinx/Vivado/2019.1/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2019.1/ids_lite/ISE/lib/nt64:C:/Xilinx/Vivado/2019.1/bin:$PATH
 fi
 export PATH
 
@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='E:/Development/VHDL/zynquart/zynqexample.runs/impl_1'
+HD_PWD='C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

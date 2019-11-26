@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="40" Path="E:/Development/VHDL/zynquart/zynqexample.xpr">
+<Project Version="7" Minor="40" Path="C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="535793aba2b641afa77c8c6237fad654"/>
@@ -66,14 +66,14 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="System.bd" FileRelPathName="ip/System_xbar_0/System_xbar_0.xci">
-          <Proxy FileSetName="System_xbar_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="System.bd" FileRelPathName="ip/System_processing_system7_0_0/System_processing_system7_0_0.xci">
           <Proxy FileSetName="System_processing_system7_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="System.bd" FileRelPathName="ip/System_axi_gpio_0_0/System_axi_gpio_0_0.xci">
           <Proxy FileSetName="System_axi_gpio_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="System.bd" FileRelPathName="ip/System_xbar_0/System_xbar_0.xci">
+          <Proxy FileSetName="System_xbar_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/System/hdl/System_wrapper.vhd">

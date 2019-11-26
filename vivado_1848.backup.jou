@@ -1,0 +1,23 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Tue Nov  5 19:45:54 2019
+# Process ID: 1848
+# Current directory: C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13636 C:\Users\Klejnot Nilu\Desktop\VHDL\zynq_memory_test\zynqexample.xpr
+# Log file: C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/vivado.log
+# Journal file: C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.xpr}
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+launch_sdk -workspace {C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.sdk} -hwspec {C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.sdk/System_wrapper.hdf}
+file copy -force {C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.runs/impl_1/System_wrapper.sysdef} {C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.sdk/System_wrapper.hdf}
+
+launch_sdk -workspace {C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.sdk} -hwspec {C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.sdk/System_wrapper.hdf}
+launch_sdk -workspace {C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.sdk} -hwspec {C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.sdk/System_wrapper.hdf}

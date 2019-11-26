@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Nov  7 10:51:43 2019
+# Process ID: 1084
+# Current directory: C:/Development/VHDL/zynq_memory_test — kopia
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent1308 C:\Development\VHDL\zynq_memory_test — kopia\zynqexample.xpr
+# Log file: C:/Development/VHDL/zynq_memory_test — kopia/vivado.log
+# Journal file: C:/Development/VHDL/zynq_memory_test — kopia\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Development/VHDL/zynq_memory_test — kopia/zynqexample.xpr}
+update_compile_order -fileset sources_1
+launch_sdk -workspace {C:/Development/VHDL/zynq_memory_test — kopia/zynqexample.sdk} -hwspec {C:/Development/VHDL/zynq_memory_test — kopia/zynqexample.sdk/System_wrapper.hdf}
+open_hw
+connect_hw_server
+disconnect_hw_server localhost:3121
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Development/VHDL/zynq_memory_test — kopia/zynqexample.runs/impl_1/System_wrapper.bit} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_1] 0]
+open_bd_design {C:/Development/VHDL/zynq_memory_test — kopia/zynqexample.srcs/sources_1/bd/System/System.bd}
