@@ -109,3 +109,13 @@ synth_1: E:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.runs/sy
 [Mon Dec  2 20:14:14 2019] Launched impl_1...
 Run output will be captured here: E:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.runs/impl_1/runme.log
 launch_runs: Time (s): cpu = 00:00:08 ; elapsed = 00:00:16 . Memory (MB): peak = 2261.379 ; gain = 164.383
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {E:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.runs/impl_1/System_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2294.695 ; gain = 0.000
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Dec  2 20:25:39 2019...
