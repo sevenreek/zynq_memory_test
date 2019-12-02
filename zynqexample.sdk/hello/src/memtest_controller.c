@@ -46,6 +46,9 @@ unsigned int memtest_getNextQuickPattern(unsigned int counter, enum QuickTestPat
 		case QUICKPATTERN_WALKINGONE:
 			return 1UL << (counter%32);
 		break;
+		case QUICKPATTERN_A:
+			return 0xAAAAAAAA;
+		break;
 		default:
 			return 0x0;
 		break;
@@ -87,10 +90,11 @@ unsigned int memtest_getDetailPatternTestCount(enum DetailTestPatterns mode)
 		break;
 	}
 }
-void memtest_performQuickTest(unsigned int wordCount, enum QuickTestPatterns mode, int readCount, unsigned int increment)
+void memtest_performQuickTest(unsigned int wordCount, enum QuickTestPatterns mode, int readCount, unsigned int increment, enum MemTestVerbosity verbosity)
 {
+	memtest_setVerbosity(verbosity);
 	wordCount = wordCount==MEMTEST_SIZE_FULL?(MEMORY_HIGH_ADDRESS - MEMORY_BASE_ADDRESS + 1)/4:wordCount; //
-	for(unsigned int counter = 0; counter < wordCount; counter++)
+	for(unsigned int counter = 0; counter < wordCount; counter+=increment)
 	{
 		unsigned int currentAddress =  MEMORY_BASE_ADDRESS + sizeof(unsigned int)*counter;
 		unsigned int pattern = memtest_getNextQuickPattern(counter, mode);
@@ -98,9 +102,9 @@ void memtest_performQuickTest(unsigned int wordCount, enum QuickTestPatterns mod
 	}
 	unsigned int errorCount = 0;
 	unsigned char currentReadCount;
-	for(unsigned int counter = 0; counter < wordCount; counter++)
+	for(unsigned int counter = 0; counter < wordCount; counter+=increment)
 	{
-		for(currentReadCount = 0; currentReadCount < readCount; currentReadCount+=increment)
+		for(currentReadCount = 0; currentReadCount < readCount; currentReadCount++)
 		{
 			unsigned int currentAddress =  MEMORY_BASE_ADDRESS + sizeof(unsigned int)*counter;
 			unsigned int expectedPattern = memtest_getNextQuickPattern(counter, mode);
@@ -121,18 +125,19 @@ void memtest_performQuickTest(unsigned int wordCount, enum QuickTestPatterns mod
 	}
 	memtest_writeTestResult(wordCount,errorCount,mode);
 }
-void memtest_performDetailTest(unsigned int wordCount, enum DetailTestPatterns mode, int readCount, unsigned int increment)
+void memtest_performDetailTest(unsigned int wordCount, enum DetailTestPatterns mode, int readCount, unsigned int increment, enum MemTestVerbosity verbosity)
 {
+	memtest_setVerbosity(verbosity);
 	wordCount = wordCount==MEMTEST_SIZE_FULL?(MEMORY_HIGH_ADDRESS - MEMORY_BASE_ADDRESS + 1)/4:wordCount; //set appropriate wordCount if parameter passed is 0
 	unsigned int errorCount = 0;
 	unsigned char concurrentTestCount = memtest_getDetailPatternTestCount(mode);
 	unsigned char currentConcurrentTestIndex = 0;
 	unsigned char currentReadCount;
-	for(unsigned int counter = 0; counter < wordCount; counter++)
+	for(unsigned int counter = 0; counter < wordCount; counter+=increment)
 	{
 		unsigned int currentAddress =  MEMORY_BASE_ADDRESS + sizeof(unsigned int)*counter;
 		unsigned int pattern;
-		for(currentConcurrentTestIndex = 0; currentConcurrentTestIndex < concurrentTestCount; currentConcurrentTestIndex+=increment)
+		for(currentConcurrentTestIndex = 0; currentConcurrentTestIndex < concurrentTestCount; currentConcurrentTestIndex++)
 		{
 			pattern = memtest_getNextDetailPattern(counter, currentConcurrentTestIndex, mode);
 			memtest_writeRegister(currentAddress, pattern);

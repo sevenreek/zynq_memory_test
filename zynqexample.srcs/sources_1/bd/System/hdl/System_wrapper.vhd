@@ -1,7 +1,7 @@
 --Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
---Date        : Tue Oct 29 21:04:44 2019
+--Date        : Mon Dec  2 20:14:03 2019
 --Host        : DESKTOP-RP1NLIS running 64-bit major release  (build 9200)
 --Command     : generate_target System_wrapper.bd
 --Design      : System_wrapper
@@ -44,6 +44,8 @@ architecture STRUCTURE of System_wrapper is
   component System is
   port (
     Led_N : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    UART0_TX : in STD_LOGIC;
+    UART0_RX : out STD_LOGIC;
     FIXED_IO_mio : inout STD_LOGIC_VECTOR ( 53 downto 0 );
     FIXED_IO_ddr_vrn : inout STD_LOGIC;
     FIXED_IO_ddr_vrp : inout STD_LOGIC;
@@ -64,9 +66,7 @@ architecture STRUCTURE of System_wrapper is
     DDR_dm : inout STD_LOGIC_VECTOR ( 3 downto 0 );
     DDR_dq : inout STD_LOGIC_VECTOR ( 31 downto 0 );
     DDR_dqs_n : inout STD_LOGIC_VECTOR ( 3 downto 0 );
-    DDR_dqs_p : inout STD_LOGIC_VECTOR ( 3 downto 0 );
-    UART0_TX : in STD_LOGIC;
-    UART0_RX : out STD_LOGIC
+    DDR_dqs_p : inout STD_LOGIC_VECTOR ( 3 downto 0 )
   );
   end component System;
 begin

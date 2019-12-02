@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="E:\Development\VHDL\zynq_main_test\zynq_memory_test\zynqexample.sdk"/>
 		<item value="C:\Development\VHDL\zynq_memory_test\zynqexample.sdk"/>
 		<item value="C:\Development\VHDL\zynq_memory_test\zynqexample.sdk\hello"/>
 	</list>

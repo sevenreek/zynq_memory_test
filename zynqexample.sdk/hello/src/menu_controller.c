@@ -16,7 +16,7 @@ unsigned char config_memoryTestModeIsDetail = MENU_TEST_MODE_QUICK;
 unsigned int config_memoryTestSize = 0;
 unsigned int config_memoryTestReadCount = 1;
 unsigned int config_memoryTestIncrementBytesChoice = 0;
-enum MemTestVerbosity config_memoryTestVerbosity = MTESTVERBOSITY_ALL;
+enum MemTestVerbosity config_memoryTestVerbosity = MTESTVERBOSITY_BAD;
 void menu_writeMain()
 {
 	unsigned char string[MENU_STRLEN_MAIN];
@@ -28,6 +28,7 @@ void menu_writeMain()
 			"\ts - switch size\n\r"
 			"\tv - switch verbosity\n\r"
 			"\td - switch read count(RDF)\n\r"
+			"\ti - switch increment size\n\r"
 			"\tr - run test\n\r"
 			);
 	uart_write(string,stringlength);
@@ -98,20 +99,37 @@ void menu_awaitInput()
 				uart_write(string,stringlength);
 			break;
 			case 'r':
+				stringlength = sprintf(
+						(char*)string,
+						"%s",
+						"Running...\n\r"
+						);
+				uart_write(string,stringlength);
 				if(config_memoryTestModeIsDetail)
 					memtest_performDetailTest(
 							MEMORY_TEST_SIZES[config_memoryTestSize],
 							config_memoryTestPattern,
 							config_memoryTestReadCount,
-							MEMORY_TEST_INCREMENTS[config_memoryTestIncrementBytesChoice]
+							MEMORY_TEST_INCREMENTS[config_memoryTestIncrementBytesChoice],
+							config_memoryTestVerbosity
 						   );
 				else
 					memtest_performQuickTest(
 							MEMORY_TEST_SIZES[config_memoryTestSize],
 							config_memoryTestPattern,
 							config_memoryTestReadCount,
-							MEMORY_TEST_INCREMENTS[config_memoryTestIncrementBytesChoice]
+							MEMORY_TEST_INCREMENTS[config_memoryTestIncrementBytesChoice],
+							config_memoryTestVerbosity
 						   );
+			break;
+			case 'i':
+				config_memoryTestIncrementBytesChoice = (config_memoryTestIncrementBytesChoice+1) % MENU_INCREMENT_BYTES_POSSIBILITES;
+				stringlength = sprintf(
+						(char*)string,
+						"increment set to %d words\n\r",
+						MEMORY_TEST_INCREMENTS[config_memoryTestIncrementBytesChoice]
+						);
+				uart_write(string,stringlength);
 			break;
 			default:
 			break;

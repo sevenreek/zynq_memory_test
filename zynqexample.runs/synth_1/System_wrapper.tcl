@@ -17,34 +17,35 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param xicom.use_bs_reader 1
 create_project -in_memory -part xc7z020clg484-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir {C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.cache/wt} [current_project]
-set_property parent.project_path {C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.xpr} [current_project]
+set_property webtalk.parent_dir E:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.cache/wt [current_project]
+set_property parent.project_path E:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.xpr [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property ip_output_repo {c:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.cache/ip} [current_project]
+set_property ip_output_repo e:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_vhdl -library xil_defaultlib {{C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/hdl/System_wrapper.vhd}}
-add_files {{C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/System.bd}}
-set_property used_in_implementation false [get_files -all {{c:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_processing_system7_0_0/System_processing_system7_0_0.xdc}}]
-set_property used_in_implementation false [get_files -all {{c:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_axi_gpio_0_0/System_axi_gpio_0_0_board.xdc}}]
-set_property used_in_implementation false [get_files -all {{c:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_axi_gpio_0_0/System_axi_gpio_0_0_ooc.xdc}}]
-set_property used_in_implementation false [get_files -all {{c:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_axi_gpio_0_0/System_axi_gpio_0_0.xdc}}]
-set_property used_in_implementation false [get_files -all {{c:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_xbar_0/System_xbar_0_ooc.xdc}}]
-set_property used_in_implementation false [get_files -all {{c:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_rst_ps7_0_50M_0/System_rst_ps7_0_50M_0_board.xdc}}]
-set_property used_in_implementation false [get_files -all {{c:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_rst_ps7_0_50M_0/System_rst_ps7_0_50M_0.xdc}}]
-set_property used_in_implementation false [get_files -all {{c:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_rst_ps7_0_50M_0/System_rst_ps7_0_50M_0_ooc.xdc}}]
-set_property used_in_implementation false [get_files -all {{c:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_axi_uartlite_0_0/System_axi_uartlite_0_0_board.xdc}}]
-set_property used_in_implementation false [get_files -all {{c:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_axi_uartlite_0_0/System_axi_uartlite_0_0_ooc.xdc}}]
-set_property used_in_implementation false [get_files -all {{c:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_axi_uartlite_0_0/System_axi_uartlite_0_0.xdc}}]
-set_property used_in_implementation false [get_files -all {{c:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_auto_pc_0/System_auto_pc_0_ooc.xdc}}]
-set_property used_in_implementation false [get_files -all {{C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/System_ooc.xdc}}]
+read_vhdl -library xil_defaultlib E:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/hdl/System_wrapper.vhd
+add_files E:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/System.bd
+set_property used_in_implementation false [get_files -all e:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_processing_system7_0_0/System_processing_system7_0_0.xdc]
+set_property used_in_implementation false [get_files -all e:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_axi_gpio_0_0/System_axi_gpio_0_0_board.xdc]
+set_property used_in_implementation false [get_files -all e:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_axi_gpio_0_0/System_axi_gpio_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_axi_gpio_0_0/System_axi_gpio_0_0.xdc]
+set_property used_in_implementation false [get_files -all e:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_xbar_0/System_xbar_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_rst_ps7_0_50M_0/System_rst_ps7_0_50M_0_board.xdc]
+set_property used_in_implementation false [get_files -all e:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_rst_ps7_0_50M_0/System_rst_ps7_0_50M_0.xdc]
+set_property used_in_implementation false [get_files -all e:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_rst_ps7_0_50M_0/System_rst_ps7_0_50M_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_axi_uartlite_0_0/System_axi_uartlite_0_0_board.xdc]
+set_property used_in_implementation false [get_files -all e:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_axi_uartlite_0_0/System_axi_uartlite_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_axi_uartlite_0_0/System_axi_uartlite_0_0.xdc]
+set_property used_in_implementation false [get_files -all e:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_auto_pc_0/System_auto_pc_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all E:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/System_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -54,11 +55,11 @@ set_property used_in_implementation false [get_files -all {{C:/Users/Klejnot Nil
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc {{C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.srcs/constrs_1/new/gpio_test.xdc}}
-set_property used_in_implementation false [get_files {{C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.srcs/constrs_1/new/gpio_test.xdc}}]
+read_xdc E:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.srcs/constrs_1/new/gpio_test.xdc
+set_property used_in_implementation false [get_files E:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.srcs/constrs_1/new/gpio_test.xdc]
 
-read_xdc {{C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.srcs/constrs_1/MarsZX3_Starter.xdc}}
-set_property used_in_implementation false [get_files {{C:/Users/Klejnot Nilu/Desktop/VHDL/zynq_memory_test/zynqexample.srcs/constrs_1/MarsZX3_Starter.xdc}}]
+read_xdc E:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.srcs/constrs_1/MarsZX3_Starter.xdc
+set_property used_in_implementation false [get_files E:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.srcs/constrs_1/MarsZX3_Starter.xdc]
 
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]

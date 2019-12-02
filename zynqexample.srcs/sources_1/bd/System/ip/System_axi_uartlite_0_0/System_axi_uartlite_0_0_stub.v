@@ -1,10 +1,10 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-// Date        : Mon Oct 14 20:47:01 2019
+// Date        : Mon Dec  2 20:15:45 2019
 // Host        : DESKTOP-RP1NLIS running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub -rename_top System_axi_uartlite_0_0 -prefix
-//               System_axi_uartlite_0_0_ System_axi_uartlite_0_0_stub.v
+// Command     : write_verilog -force -mode synth_stub
+//               E:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.srcs/sources_1/bd/System/ip/System_axi_uartlite_0_0/System_axi_uartlite_0_0_stub.v
 // Design      : System_axi_uartlite_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg484-1
