@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='E:/Development/VHDL/zynquart/zynqexample.runs/System_xbar_0_synth_1'
+HD_PWD='E:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.runs/System_xbar_0_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

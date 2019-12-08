@@ -2,7 +2,6 @@
  * menu_controller.h
  *
  *  Created on: Nov 3, 2019
- *      Author: Dickbutt
  */
 
 #ifndef SRC_MENU_CONTROLLER_H_

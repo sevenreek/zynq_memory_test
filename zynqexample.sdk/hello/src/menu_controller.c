@@ -2,7 +2,6 @@
  * menu_controller.c
  *
  *  Created on: Nov 3, 2019
- *      Author: Dickbutt
  */
 #include "menu_controller.h"
 

@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xC0FB777DA2A76C67",
+      "boundary_crc": "0x8A6389F2571DD79D",
       "device": "xc7z020clg484-1",
       "name": "System",
       "synth_flow_mode": "Hierarchical",
@@ -87,14 +87,13 @@
             "value_src": "default"
           }
         }
+      },
+      "gpio_rtl_0": {
+        "mode": "Master",
+        "vlnv": "xilinx.com:interface:gpio_rtl:1.0"
       }
     },
     "ports": {
-      "Led_N": {
-        "direction": "O",
-        "left": "3",
-        "right": "0"
-      },
       "UART0_TX": {
         "direction": "I"
       },
@@ -767,11 +766,17 @@
         "vlnv": "xilinx.com:ip:axi_gpio:2.0",
         "xci_name": "System_axi_gpio_0_0",
         "parameters": {
+          "C_ALL_INPUTS": {
+            "value": "0"
+          },
           "C_ALL_OUTPUTS": {
-            "value": "1"
+            "value": "0"
           },
           "C_GPIO_WIDTH": {
-            "value": "4"
+            "value": "16"
+          },
+          "C_IS_DUAL": {
+            "value": "0"
           }
         }
       },
@@ -1148,16 +1153,22 @@
           }
         },
         "interface_nets": {
-          "m00_couplers_to_ps7_0_axi_periph": {
+          "ps7_0_axi_periph_to_s00_couplers": {
             "interface_ports": [
-              "M00_AXI",
-              "m00_couplers/M_AXI"
+              "S00_AXI",
+              "s00_couplers/S_AXI"
             ]
           },
           "s00_couplers_to_xbar": {
             "interface_ports": [
               "s00_couplers/M_AXI",
               "xbar/S00_AXI"
+            ]
+          },
+          "m00_couplers_to_ps7_0_axi_periph": {
+            "interface_ports": [
+              "M00_AXI",
+              "m00_couplers/M_AXI"
             ]
           },
           "xbar_to_m00_couplers": {
@@ -1172,22 +1183,16 @@
               "m01_couplers/M_AXI"
             ]
           },
-          "ps7_0_axi_periph_to_s00_couplers": {
+          "m02_couplers_to_ps7_0_axi_periph": {
             "interface_ports": [
-              "S00_AXI",
-              "s00_couplers/S_AXI"
+              "M02_AXI",
+              "m02_couplers/M_AXI"
             ]
           },
           "xbar_to_m01_couplers": {
             "interface_ports": [
               "xbar/M01_AXI",
               "m01_couplers/S_AXI"
-            ]
-          },
-          "m02_couplers_to_ps7_0_axi_periph": {
-            "interface_ports": [
-              "M02_AXI",
-              "m02_couplers/M_AXI"
             ]
           },
           "xbar_to_m02_couplers": {
@@ -1243,6 +1248,12 @@
       }
     },
     "interface_nets": {
+      "processing_system7_0_DDR": {
+        "interface_ports": [
+          "DDR",
+          "processing_system7_0/DDR"
+        ]
+      },
       "ps7_0_axi_periph_M01_AXI": {
         "interface_ports": [
           "ps7_0_axi_periph/M01_AXI",
@@ -1255,10 +1266,10 @@
           "processing_system7_0/FIXED_IO"
         ]
       },
-      "processing_system7_0_DDR": {
+      "ps7_0_axi_periph_M00_AXI": {
         "interface_ports": [
-          "DDR",
-          "processing_system7_0/DDR"
+          "ps7_0_axi_periph/M00_AXI",
+          "axi_gpio_0/S_AXI"
         ]
       },
       "processing_system7_0_M_AXI_GP0": {
@@ -1267,10 +1278,10 @@
           "ps7_0_axi_periph/S00_AXI"
         ]
       },
-      "ps7_0_axi_periph_M00_AXI": {
+      "axi_gpio_0_GPIO": {
         "interface_ports": [
-          "ps7_0_axi_periph/M00_AXI",
-          "axi_gpio_0/S_AXI"
+          "gpio_rtl_0",
+          "axi_gpio_0/GPIO"
         ]
       }
     },
@@ -1305,12 +1316,6 @@
           "ps7_0_axi_periph/M01_ARESETN",
           "ps7_0_axi_periph/M02_ARESETN",
           "axi_uartlite_0/s_axi_aresetn"
-        ]
-      },
-      "axi_gpio_0_gpio_io_o": {
-        "ports": [
-          "axi_gpio_0/gpio_io_o",
-          "Led_N"
         ]
       },
       "UART0_TX_1": {

@@ -12,5 +12,4 @@ rst -processor
 targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000acb5d4001"} -index 0
 dow E:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.sdk/hello/Debug/hello.elf
 configparams force-mem-access 0
-targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000acb5d4001"} -index 0
-con
+bpadd -addr &main

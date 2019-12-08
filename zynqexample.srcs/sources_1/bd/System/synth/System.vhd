@@ -1,7 +1,7 @@
 --Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
---Date        : Mon Dec  2 20:14:03 2019
+--Date        : Sun Dec  8 13:56:33 2019
 --Host        : DESKTOP-RP1NLIS running 64-bit major release  (build 9200)
 --Command     : generate_target System.bd
 --Design      : System
@@ -1383,12 +1383,14 @@ entity System is
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC;
-    Led_N : out STD_LOGIC_VECTOR ( 3 downto 0 );
     UART0_RX : out STD_LOGIC;
-    UART0_TX : in STD_LOGIC
+    UART0_TX : in STD_LOGIC;
+    gpio_rtl_0_tri_i : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    gpio_rtl_0_tri_o : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    gpio_rtl_0_tri_t : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of System : entity is "System,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=System,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=11,numReposBlks=6,numNonXlnxBlks=0,numHierBlks=5,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=5,da_board_cnt=4,da_clkrst_cnt=2,da_ps7_cnt=1,synth_mode=OOC_per_IP}";
+  attribute CORE_GENERATION_INFO of System : entity is "System,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=System,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=11,numReposBlks=6,numNonXlnxBlks=0,numHierBlks=5,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=5,da_board_cnt=7,da_clkrst_cnt=2,da_ps7_cnt=1,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of System : entity is "System.hwdef";
 end System;
@@ -1482,7 +1484,9 @@ architecture STRUCTURE of System is
     s_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_rvalid : out STD_LOGIC;
     s_axi_rready : in STD_LOGIC;
-    gpio_io_o : out STD_LOGIC_VECTOR ( 3 downto 0 )
+    gpio_io_i : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    gpio_io_o : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    gpio_io_t : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   end component System_axi_gpio_0_0;
   component System_rst_ps7_0_50M_0 is
@@ -1526,7 +1530,9 @@ architecture STRUCTURE of System is
   );
   end component System_axi_uartlite_0_0;
   signal UART0_TX_1 : STD_LOGIC;
-  signal axi_gpio_0_gpio_io_o : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal axi_gpio_0_GPIO_TRI_I : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal axi_gpio_0_GPIO_TRI_O : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal axi_gpio_0_GPIO_TRI_T : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal axi_uartlite_0_tx : STD_LOGIC;
   signal processing_system7_0_DDR_ADDR : STD_LOGIC_VECTOR ( 14 downto 0 );
   signal processing_system7_0_DDR_BA : STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -1665,13 +1671,20 @@ architecture STRUCTURE of System is
   attribute X_INTERFACE_INFO of DDR_dqs_n : signal is "xilinx.com:interface:ddrx:1.0 DDR DQS_N";
   attribute X_INTERFACE_INFO of DDR_dqs_p : signal is "xilinx.com:interface:ddrx:1.0 DDR DQS_P";
   attribute X_INTERFACE_INFO of FIXED_IO_mio : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO MIO";
+  attribute X_INTERFACE_INFO of gpio_rtl_0_tri_i : signal is "xilinx.com:interface:gpio:1.0 gpio_rtl_0 TRI_I";
+  attribute X_INTERFACE_INFO of gpio_rtl_0_tri_o : signal is "xilinx.com:interface:gpio:1.0 gpio_rtl_0 TRI_O";
+  attribute X_INTERFACE_INFO of gpio_rtl_0_tri_t : signal is "xilinx.com:interface:gpio:1.0 gpio_rtl_0 TRI_T";
 begin
-  Led_N(3 downto 0) <= axi_gpio_0_gpio_io_o(3 downto 0);
   UART0_RX <= axi_uartlite_0_tx;
   UART0_TX_1 <= UART0_TX;
+  axi_gpio_0_GPIO_TRI_I(15 downto 0) <= gpio_rtl_0_tri_i(15 downto 0);
+  gpio_rtl_0_tri_o(15 downto 0) <= axi_gpio_0_GPIO_TRI_O(15 downto 0);
+  gpio_rtl_0_tri_t(15 downto 0) <= axi_gpio_0_GPIO_TRI_T(15 downto 0);
 axi_gpio_0: component System_axi_gpio_0_0
      port map (
-      gpio_io_o(3 downto 0) => axi_gpio_0_gpio_io_o(3 downto 0),
+      gpio_io_i(15 downto 0) => axi_gpio_0_GPIO_TRI_I(15 downto 0),
+      gpio_io_o(15 downto 0) => axi_gpio_0_GPIO_TRI_O(15 downto 0),
+      gpio_io_t(15 downto 0) => axi_gpio_0_GPIO_TRI_T(15 downto 0),
       s_axi_aclk => processing_system7_0_FCLK_CLK0,
       s_axi_araddr(8 downto 0) => ps7_0_axi_periph_M00_AXI_ARADDR(8 downto 0),
       s_axi_aresetn => rst_ps7_0_50M_peripheral_aresetn(0),

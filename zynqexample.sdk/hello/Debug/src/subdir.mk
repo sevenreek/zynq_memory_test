@@ -7,6 +7,7 @@ LD_SRCS += \
 ../src/lscript.ld 
 
 C_SRCS += \
+../src/gpiotest_controller.c \
 ../src/main.c \
 ../src/memtest_controller.c \
 ../src/menu_controller.c \
@@ -14,6 +15,7 @@ C_SRCS += \
 ../src/uart_controller.c 
 
 OBJS += \
+./src/gpiotest_controller.o \
 ./src/main.o \
 ./src/memtest_controller.o \
 ./src/menu_controller.o \
@@ -21,6 +23,7 @@ OBJS += \
 ./src/uart_controller.o 
 
 C_DEPS += \
+./src/gpiotest_controller.d \
 ./src/main.d \
 ./src/memtest_controller.d \
 ./src/menu_controller.d \

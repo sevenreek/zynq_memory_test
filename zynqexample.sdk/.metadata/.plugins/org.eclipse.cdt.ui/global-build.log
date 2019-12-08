@@ -1,1263 +1,228 @@
-09:57:39 **** Clean-only build of configuration Debug for project hello ****
-make clean 
-rm -rf  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o  ./src/main.d ./src/memtest_controller.d ./src/menu_controller.d ./src/platform.d ./src/uart_controller.d  hello.elf.size  hello.elf
-' '
-09:57:42 **** Build of configuration Debug for project hello ****
+17:54:06 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
+' '
+'Building target: hello.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/gpiotest_controller.o ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+e:/programy/vivado2019/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/main.o:E:\Development\VHDL\zynq_main_test\zynq_memory_test\zynqexample.sdk\hello\Debug/../src/gpiotest_controller.h:18: multiple definition of `XGPIO_INPUT_PAIRS'; ./src/gpiotest_controller.o:E:\Development\VHDL\zynq_main_test\zynq_memory_test\zynqexample.sdk\hello\Debug/../src/gpiotest_controller.h:18: first defined here
+e:/programy/vivado2019/sdk/2019.1/gnu/aarch32/nt/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld.exe: ./src/main.o:E:\Development\VHDL\zynq_main_test\zynq_memory_test\zynqexample.sdk\hello\Debug/../src/gpiotest_controller.h:19: multiple definition of `XGPIO_OUTPUT_PAIRS'; ./src/gpiotest_controller.o:E:\Development\VHDL\zynq_main_test\zynq_memory_test\zynqexample.sdk\hello\Debug/../src/gpiotest_controller.h:19: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:41: hello.elf] Error 1
+17:55:07 **** Auto Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/gpiotest_controller.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/gpiotest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/gpiotest_controller.d" -MT"src/gpiotest_controller.o" -o "src/gpiotest_controller.o" "../src/gpiotest_controller.c"
+../src/gpiotest_controller.c:7:21: error: redefinition of 'XGPIO_INPUT_PAIRS'
+ const unsigned char XGPIO_INPUT_PAIRS [XGPIO_CHANNEL_COUNT][XGPIO_PAIR_COUNT] = {{0,2,4,6,8,10,12,14}};
+                     ^~~~~~~~~~~~~~~~~
+In file included from ../src/gpiotest_controller.c:6:
+../src/gpiotest_controller.h:18:21: note: previous definition of 'XGPIO_INPUT_PAIRS' was here
+ const unsigned char XGPIO_INPUT_PAIRS [XGPIO_CHANNEL_COUNT][XGPIO_PAIR_COUNT] = {{0,2,4,6,8,10,12,14}};
+                     ^~~~~~~~~~~~~~~~~
+../src/gpiotest_controller.c:8:21: error: redefinition of 'XGPIO_OUTPUT_PAIRS'
+ const unsigned char XGPIO_OUTPUT_PAIRS[XGPIO_CHANNEL_COUNT][XGPIO_PAIR_COUNT] = {{1,3,5,7,9,11,13,15}};
+                     ^~~~~~~~~~~~~~~~~~
+In file included from ../src/gpiotest_controller.c:6:
+../src/gpiotest_controller.h:19:21: note: previous definition of 'XGPIO_OUTPUT_PAIRS' was here
+ const unsigned char XGPIO_OUTPUT_PAIRS[XGPIO_CHANNEL_COUNT][XGPIO_PAIR_COUNT] = {{1,3,5,7,9,11,13,15}};
+                     ^~~~~~~~~~~~~~~~~~
+make: *** [src/subdir.mk:38: src/gpiotest_controller.o] Error 1
+17:55:12 **** Auto Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/gpiotest_controller.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/gpiotest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/gpiotest_controller.d" -MT"src/gpiotest_controller.o" -o "src/gpiotest_controller.o" "../src/gpiotest_controller.c"
+'Finished building: ../src/gpiotest_controller.c'
 ' '
 'Building file: ../src/main.c'
 'Invoking: ARM v7 gcc compiler'
 arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
 'Finished building: ../src/main.c'
 ' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-'Finished building: ../src/memtest_controller.c'
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
-' '
-'Building file: ../src/platform.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
-'Finished building: ../src/platform.c'
-' '
-'Building file: ../src/uart_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/uart_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/uart_controller.d" -MT"src/uart_controller.o" -o "src/uart_controller.o" "../src/uart_controller.c"
-../src/uart_controller.c: In function 'uart_write':
-../src/uart_controller.c:21:13: warning: pointer targets in passing argument 1 of 'xil_printf' differ in signedness [-Wpointer-sign]
-  xil_printf(buffer);
-             ^~~~~~
-In file included from ../../standalone_bsp_0/ps7_cortexa9_0/include/xil_io.h:61,
-                 from ../../standalone_bsp_0/ps7_cortexa9_0/include/xuartlite_l.h:69,
-                 from ../src/uart_controller.h:6,
-                 from ../src/uart_controller.c:7:
-../../standalone_bsp_0/ps7_cortexa9_0/include/xil_printf.h:39:6: note: expected 'const char8 *' {aka 'const char *'} but argument is of type 'unsigned char *'
- void xil_printf( const char8 *ctrl1, ...);
-      ^~~~~~~~~~
-../src/uart_controller.c:22:1: warning: control reaches end of non-void function [-Wreturn-type]
- }
- ^
-'Finished building: ../src/uart_controller.c'
-' '
 'Building target: hello.elf'
 'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/gpiotest_controller.o ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
 'Finished building target: hello.elf'
 ' '
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size hello.elf  |tee "hello.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  58708	   2616	  23416	  84740	  14b04	hello.elf
+  61364	   2632	  23436	  87432	  15588	hello.elf
 'Finished building: hello.elf.size'
 ' '
-09:59:59 **** Incremental Build of configuration Debug for project hello ****
+17:55:38 **** Auto Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/gpiotest_controller.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/gpiotest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/gpiotest_controller.d" -MT"src/gpiotest_controller.o" -o "src/gpiotest_controller.o" "../src/gpiotest_controller.c"
+'Finished building: ../src/gpiotest_controller.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building target: hello.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/gpiotest_controller.o ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: hello.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size hello.elf  |tee "hello.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  61364	   2632	  23436	  87432	  15588	hello.elf
+'Finished building: hello.elf.size'
+' '
+17:55:42 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for 'main-build'.
-10:02:05 **** Build of project standalone_bsp_0 ****
-make -k all 
-"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src"
-make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src"
-make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
-make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
-make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_4/src"
-make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_5/src"
-make -C ps7_cortexa9_0/libsrc/gpiops_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/gpio_v4_4/src"
-make -C ps7_cortexa9_0/libsrc/gpio_v4_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/scugic_v4_0/src"
-make -C ps7_cortexa9_0/libsrc/scugic_v4_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
-make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
-make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/standalone_v7_0/src"
-make -C ps7_cortexa9_0/libsrc/standalone_v7_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/uartlite_v3_2/src"
-make -C ps7_cortexa9_0/libsrc/uartlite_v3_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_3/src"
-make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src"
-make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling coresightps_dcc"
-"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src"
-make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling cpu_cortexa9"
-"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
-make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling ddrps"
-"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
-make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling devcfg"
-"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_4/src"
-make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling dmaps"
-"Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_5/src"
-make -C ps7_cortexa9_0/libsrc/gpiops_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling gpiops"
-"Running Make libs in ps7_cortexa9_0/libsrc/gpio_v4_4/src"
-make -C ps7_cortexa9_0/libsrc/gpio_v4_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling gpio"
-"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v4_0/src"
-make -C ps7_cortexa9_0/libsrc/scugic_v4_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling scugic"
-"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
-make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling scutimer"
-"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
-make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling scuwdt"
-"Running Make libs in ps7_cortexa9_0/libsrc/standalone_v7_0/src"
-make -C ps7_cortexa9_0/libsrc/standalone_v7_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling standalone"
-In file included from usleep.c:56:
-xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
- #pragma message ("For the sleep routines, Global timer is being used")
-         ^~~~~~~
-In file included from sleep.c:53:
-xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
- #pragma message ("For the sleep routines, Global timer is being used")
-         ^~~~~~~
-In file included from xil_sleeptimer.c:51:
-xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
- #pragma message ("For the sleep routines, Global timer is being used")
-         ^~~~~~~
-In file included from xtime_l.c:49:
-xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
- #pragma message ("For the sleep routines, Global timer is being used")
-         ^~~~~~~
-"Running Make libs in ps7_cortexa9_0/libsrc/uartlite_v3_2/src"
-make -C ps7_cortexa9_0/libsrc/uartlite_v3_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling uartlite"
-"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_3/src"
-make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling xadcps"
-'Finished building libraries'
-10:02:46 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/main.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-'Finished building: ../src/memtest_controller.c'
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
-' '
-'Building file: ../src/platform.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
-'Finished building: ../src/platform.c'
-' '
-'Building file: ../src/uart_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/uart_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/uart_controller.d" -MT"src/uart_controller.o" -o "src/uart_controller.o" "../src/uart_controller.c"
-../src/uart_controller.c: In function 'uart_write':
-../src/uart_controller.c:21:13: warning: pointer targets in passing argument 1 of 'xil_printf' differ in signedness [-Wpointer-sign]
-  xil_printf(buffer);
-             ^~~~~~
-In file included from ../../standalone_bsp_0/ps7_cortexa9_0/include/xil_io.h:61,
-                 from ../../standalone_bsp_0/ps7_cortexa9_0/include/xuartlite_l.h:69,
-                 from ../src/uart_controller.h:6,
-                 from ../src/uart_controller.c:7:
-../../standalone_bsp_0/ps7_cortexa9_0/include/xil_printf.h:39:6: note: expected 'const char8 *' {aka 'const char *'} but argument is of type 'unsigned char *'
- void xil_printf( const char8 *ctrl1, ...);
-      ^~~~~~~~~~
-../src/uart_controller.c:22:1: warning: control reaches end of non-void function [-Wreturn-type]
- }
- ^
-'Finished building: ../src/uart_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  58708	   2616	  23416	  84740	  14b04	hello.elf
-'Finished building: hello.elf.size'
-' '
-10:02:51 **** Incremental Build of configuration Debug for project hello ****
+17:55:47 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for 'main-build'.
-10:03:44 **** Incremental Build of configuration Debug for project hello ****
+17:59:17 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for 'main-build'.
-10:07:01 **** Incremental Build of configuration Debug for project hello ****
+17:59:46 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for 'main-build'.
-10:13:05 **** Auto Build of project standalone_bsp_0 ****
-make -k all 
-"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src"
-make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src"
-make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
-make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
-make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_4/src"
-make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_5/src"
-make -C ps7_cortexa9_0/libsrc/gpiops_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/gpio_v4_4/src"
-make -C ps7_cortexa9_0/libsrc/gpio_v4_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/scugic_v4_0/src"
-make -C ps7_cortexa9_0/libsrc/scugic_v4_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
-make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
-make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/standalone_v7_0/src"
-make -C ps7_cortexa9_0/libsrc/standalone_v7_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/uartlite_v3_2/src"
-make -C ps7_cortexa9_0/libsrc/uartlite_v3_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_3/src"
-make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src"
-make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling coresightps_dcc"
-arm-none-eabi-ar: creating ../../../lib/libxil.a
-"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src"
-make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling cpu_cortexa9"
-"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
-make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling ddrps"
-"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
-make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling devcfg"
-"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_4/src"
-make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling dmaps"
-"Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_5/src"
-make -C ps7_cortexa9_0/libsrc/gpiops_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling gpiops"
-"Running Make libs in ps7_cortexa9_0/libsrc/gpio_v4_4/src"
-make -C ps7_cortexa9_0/libsrc/gpio_v4_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling gpio"
-"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v4_0/src"
-make -C ps7_cortexa9_0/libsrc/scugic_v4_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling scugic"
-"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
-make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling scutimer"
-"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
-make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling scuwdt"
-"Running Make libs in ps7_cortexa9_0/libsrc/standalone_v7_0/src"
-make -C ps7_cortexa9_0/libsrc/standalone_v7_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling standalone"
-In file included from usleep.c:56:
-xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
- #pragma message ("For the sleep routines, Global timer is being used")
-         ^~~~~~~
-In file included from xil_sleeptimer.c:51:
-xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
- #pragma message ("For the sleep routines, Global timer is being used")
-         ^~~~~~~
-In file included from xtime_l.c:49:
-xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
- #pragma message ("For the sleep routines, Global timer is being used")
-         ^~~~~~~
-In file included from sleep.c:53:
-xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
- #pragma message ("For the sleep routines, Global timer is being used")
-         ^~~~~~~
-"Running Make libs in ps7_cortexa9_0/libsrc/uartlite_v3_2/src"
-make -C ps7_cortexa9_0/libsrc/uartlite_v3_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling uartlite"
-"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_3/src"
-make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling xadcps"
-'Finished building libraries'
-10:13:43 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/main.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-'Finished building: ../src/memtest_controller.c'
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
-' '
-'Building file: ../src/platform.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
-'Finished building: ../src/platform.c'
-' '
-'Building file: ../src/uart_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/uart_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/uart_controller.d" -MT"src/uart_controller.o" -o "src/uart_controller.o" "../src/uart_controller.c"
-../src/uart_controller.c: In function 'uart_write':
-../src/uart_controller.c:21:13: warning: pointer targets in passing argument 1 of 'xil_printf' differ in signedness [-Wpointer-sign]
-  xil_printf(buffer);
-             ^~~~~~
-In file included from ../../standalone_bsp_0/ps7_cortexa9_0/include/xil_io.h:61,
-                 from ../../standalone_bsp_0/ps7_cortexa9_0/include/xuartlite_l.h:69,
-                 from ../src/uart_controller.h:6,
-                 from ../src/uart_controller.c:7:
-../../standalone_bsp_0/ps7_cortexa9_0/include/xil_printf.h:39:6: note: expected 'const char8 *' {aka 'const char *'} but argument is of type 'unsigned char *'
- void xil_printf( const char8 *ctrl1, ...);
-      ^~~~~~~~~~
-../src/uart_controller.c:22:1: warning: control reaches end of non-void function [-Wreturn-type]
- }
- ^
-'Finished building: ../src/uart_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  58708	   2616	  23416	  84740	  14b04	hello.elf
-'Finished building: hello.elf.size'
-' '
-10:13:48 **** Incremental Build of configuration Debug for project hello ****
+18:01:37 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for 'main-build'.
-10:15:45 **** Incremental Build of configuration Debug for project hello ****
+18:03:46 **** Auto Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/gpiotest_controller.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/gpiotest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/gpiotest_controller.d" -MT"src/gpiotest_controller.o" -o "src/gpiotest_controller.o" "../src/gpiotest_controller.c"
+../src/gpiotest_controller.c: In function 'xgpiotest_init':
+../src/gpiotest_controller.c:18:42: error: 'channel' undeclared (first use in this function)
+  u32 readMask = XGpio_DiscreteRead(&GPIO,channel+1);
+                                          ^~~~~~~
+../src/gpiotest_controller.c:18:42: note: each undeclared identifier is reported only once for each function it appears in
+../src/gpiotest_controller.c:18:6: warning: unused variable 'readMask' [-Wunused-variable]
+  u32 readMask = XGpio_DiscreteRead(&GPIO,channel+1);
+      ^~~~~~~~
+make: *** [src/subdir.mk:38: src/gpiotest_controller.o] Error 1
+18:03:50 **** Auto Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/gpiotest_controller.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/gpiotest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/gpiotest_controller.d" -MT"src/gpiotest_controller.o" -o "src/gpiotest_controller.o" "../src/gpiotest_controller.c"
+../src/gpiotest_controller.c: In function 'xgpiotest_init':
+../src/gpiotest_controller.c:17:42: error: 'channel' undeclared (first use in this function)
+  u32 readMask = XGpio_DiscreteRead(&GPIO,channel+1);
+                                          ^~~~~~~
+../src/gpiotest_controller.c:17:42: note: each undeclared identifier is reported only once for each function it appears in
+../src/gpiotest_controller.c:17:6: warning: unused variable 'readMask' [-Wunused-variable]
+  u32 readMask = XGpio_DiscreteRead(&GPIO,channel+1);
+      ^~~~~~~~
+make: *** [src/subdir.mk:38: src/gpiotest_controller.o] Error 1
+18:04:02 **** Auto Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/gpiotest_controller.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/gpiotest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/gpiotest_controller.d" -MT"src/gpiotest_controller.o" -o "src/gpiotest_controller.o" "../src/gpiotest_controller.c"
+../src/gpiotest_controller.c: In function 'xgpiotest_init':
+../src/gpiotest_controller.c:17:6: warning: unused variable 'readMask' [-Wunused-variable]
+  u32 readMask = XGpio_DiscreteRead(&GPIO,1);
+      ^~~~~~~~
+'Finished building: ../src/gpiotest_controller.c'
+' '
+'Building target: hello.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/gpiotest_controller.o ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: hello.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size hello.elf  |tee "hello.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  61364	   2632	  23436	  87432	  15588	hello.elf
+'Finished building: hello.elf.size'
+' '
+18:04:31 **** Auto Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/gpiotest_controller.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/gpiotest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/gpiotest_controller.d" -MT"src/gpiotest_controller.o" -o "src/gpiotest_controller.o" "../src/gpiotest_controller.c"
+'Finished building: ../src/gpiotest_controller.c'
+' '
+'Building target: hello.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/gpiotest_controller.o ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: hello.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size hello.elf  |tee "hello.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  61364	   2632	  23436	  87432	  15588	hello.elf
+'Finished building: hello.elf.size'
+' '
+18:04:36 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for 'main-build'.
-10:17:53 **** Incremental Build of configuration Debug for project hello ****
+18:08:56 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for 'main-build'.
-09:58:17 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-'Finished building: ../src/memtest_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  58708	   2616	  23416	  84740	  14b04	hello.elf
-'Finished building: hello.elf.size'
-' '
-09:58:41 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-'Finished building: ../src/memtest_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  58708	   2616	  23416	  84740	  14b04	hello.elf
-'Finished building: hello.elf.size'
-' '
-09:58:44 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/main.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-'Finished building: ../src/memtest_controller.c'
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  58708	   2616	  23416	  84740	  14b04	hello.elf
-'Finished building: hello.elf.size'
-' '
-09:59:34 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/main.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-../src/memtest_controller.c:90:6: error: conflicting types for 'memtest_performQuickTest'
- void memtest_performQuickTest(unsigned int wordCount, enum QuickTestPatterns mode, int readCount)
-      ^~~~~~~~~~~~~~~~~~~~~~~~
-In file included from ../src/memtest_controller.c:7:
-../src/memtest_controller.h:45:6: note: previous declaration of 'memtest_performQuickTest' was here
- void memtest_performQuickTest(unsigned int wordCount, enum QuickTestPatterns mode, int readCount, unsigned int increment);
-      ^~~~~~~~~~~~~~~~~~~~~~~~
-../src/memtest_controller.c:123:6: error: conflicting types for 'memtest_performDetailTest'
- void memtest_performDetailTest(unsigned int wordCount, enum DetailTestPatterns mode, int readCount)
-      ^~~~~~~~~~~~~~~~~~~~~~~~~
-In file included from ../src/memtest_controller.c:7:
-../src/memtest_controller.h:46:6: note: previous declaration of 'memtest_performDetailTest' was here
- void memtest_performDetailTest(unsigned int wordCount, enum DetailTestPatterns mode, int readCount, unsigned int increment);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~
-make: *** [src/subdir.mk:35: src/memtest_controller.o] Error 1
-10:00:05 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-../src/memtest_controller.c:123:6: error: conflicting types for 'memtest_performDetailTest'
- void memtest_performDetailTest(unsigned int wordCount, enum DetailTestPatterns mode, int readCount)
-      ^~~~~~~~~~~~~~~~~~~~~~~~~
-In file included from ../src/memtest_controller.c:7:
-../src/memtest_controller.h:46:6: note: previous declaration of 'memtest_performDetailTest' was here
- void memtest_performDetailTest(unsigned int wordCount, enum DetailTestPatterns mode, int readCount, unsigned int increment);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~
-make: *** [src/subdir.mk:35: src/memtest_controller.o] Error 1
-10:01:07 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-'Finished building: ../src/memtest_controller.c'
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-../src/menu_controller.c: In function 'menu_awaitInput':
-../src/menu_controller.c:98:6: error: too few arguments to function 'memtest_performDetailTest'
-      memtest_performDetailTest(MEMORY_TEST_SIZES[config_memoryTestSize], config_memoryTestPattern, config_memoryTestReadCount);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~
-In file included from ../src/menu_controller.h:12,
-                 from ../src/menu_controller.c:7:
-../src/memtest_controller.h:46:6: note: declared here
- void memtest_performDetailTest(unsigned int wordCount, enum DetailTestPatterns mode, int readCount, unsigned int increment);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~
-../src/menu_controller.c:100:6: error: too few arguments to function 'memtest_performQuickTest'
-      memtest_performQuickTest(MEMORY_TEST_SIZES[config_memoryTestSize], config_memoryTestPattern, config_memoryTestReadCount);
-      ^~~~~~~~~~~~~~~~~~~~~~~~
-In file included from ../src/menu_controller.h:12,
-                 from ../src/menu_controller.c:7:
-../src/memtest_controller.h:45:6: note: declared here
- void memtest_performQuickTest(unsigned int wordCount, enum QuickTestPatterns mode, int readCount, unsigned int increment);
-      ^~~~~~~~~~~~~~~~~~~~~~~~
-make: *** [src/subdir.mk:35: src/menu_controller.o] Error 1
-10:01:53 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  58772	   2616	  23416	  84804	  14b44	hello.elf
-'Finished building: hello.elf.size'
-' '
-10:06:27 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/main.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  58772	   2616	  23416	  84804	  14b44	hello.elf
-'Finished building: hello.elf.size'
-' '
-10:07:02 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/main.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  58772	   2616	  23416	  84804	  14b44	hello.elf
-'Finished building: hello.elf.size'
-' '
-10:08:25 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/main.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  58772	   2616	  23416	  84804	  14b44	hello.elf
-'Finished building: hello.elf.size'
-' '
-10:08:31 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/main.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  58772	   2616	  23416	  84804	  14b44	hello.elf
-'Finished building: hello.elf.size'
-' '
-10:10:39 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/main.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  58772	   2616	  23416	  84804	  14b44	hello.elf
-'Finished building: hello.elf.size'
-' '
-10:10:43 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  58796	   2616	  23416	  84828	  14b5c	hello.elf
-'Finished building: hello.elf.size'
-' '
-10:11:54 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-../src/menu_controller.c:18:9: error: expected ';' before 'char'
- unsinged char config_memoryTestIncrementBytesChoice = 0;
-         ^~~~~
-         ;
-../src/menu_controller.c: In function 'menu_awaitInput':
-../src/menu_controller.c:102:128: error: 'config_memoryTestIncrementBytes' undeclared (first use in this function); did you mean 'config_memoryTestIncrementBytesChoice'?
-      memtest_performDetailTest(MEMORY_TEST_SIZES[config_memoryTestSize], config_memoryTestPattern, config_memoryTestReadCount, config_memoryTestIncrementBytes);
-                                                                                                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                                                                                                                                config_memoryTestIncrementBytesChoice
-../src/menu_controller.c:102:128: note: each undeclared identifier is reported only once for each function it appears in
-make: *** [src/subdir.mk:35: src/menu_controller.o] Error 1
-10:12:48 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-../src/menu_controller.c:18:9: error: expected ';' before 'char'
- unsinged char config_memoryTestIncrementBytesChoice = 0;
-         ^~~~~
-         ;
-../src/menu_controller.c: In function 'menu_awaitInput':
-../src/menu_controller.c:106:30: warning: array subscript has type 'char' [-Wchar-subscripts]
-        MEMORY_TEST_INCREMENTS[config_memoryTestIncrementBytesChoice]
-                              ^
-../src/menu_controller.c:109:149: warning: array subscript has type 'char' [-Wchar-subscripts]
-      memtest_performQuickTest(MEMORY_TEST_SIZES[config_memoryTestSize], config_memoryTestPattern, config_memoryTestReadCount, MEMORY_TEST_INCREMENTS[config_memoryTestIncrementBytesChoice]);
-                                                                                                                                                     ^
-make: *** [src/subdir.mk:35: src/menu_controller.o] Error 1
-10:12:59 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-../src/menu_controller.c:18:9: error: expected ';' before 'int'
- unsinged int config_memoryTestIncrementBytesChoice = 0;
-         ^~~~
-         ;
-make: *** [src/subdir.mk:35: src/menu_controller.o] Error 1
-10:13:16 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  58860	   2616	  23420	  84896	  14ba0	hello.elf
-'Finished building: hello.elf.size'
-' '
-10:13:44 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  58860	   2616	  23420	  84896	  14ba0	hello.elf
-'Finished building: hello.elf.size'
-' '
-10:30:04 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-../src/memtest_controller.c: In function 'memtest_performQuickTest':
-../src/memtest_controller.c:92:12: warning: operation on 'wordCount' may be undefined [-Wsequence-point]
-  wordCount = wordCount=0?(MEMORY_HIGH_ADDRESS - MEMORY_BASE_ADDRESS)/4:wordCount;
-  ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-'Finished building: ../src/memtest_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  58860	   2616	  23420	  84896	  14ba0	hello.elf
-'Finished building: hello.elf.size'
-' '
-11:36:43 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-'Finished building: ../src/memtest_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  58860	   2616	  23420	  84896	  14ba0	hello.elf
-'Finished building: hello.elf.size'
-' '
-11:41:12 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-'Finished building: ../src/memtest_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  58860	   2616	  23420	  84896	  14ba0	hello.elf
-'Finished building: hello.elf.size'
-' '
-11:43:01 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-'Finished building: ../src/memtest_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  58860	   2616	  23420	  84896	  14ba0	hello.elf
-'Finished building: hello.elf.size'
-' '
-11:43:26 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/main.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-'Finished building: ../src/memtest_controller.c'
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  58860	   2616	  23420	  84896	  14ba0	hello.elf
-'Finished building: hello.elf.size'
-' '
-11:43:49 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/main.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-../src/menu_controller.c:11:14: error: 'MENU_MEMTEST_SIZE_FULL' undeclared here (not in a function); did you mean 'MENU_TEST_MODE_QUICK'?
-           = {MENU_MEMTEST_SIZE_FULL, 4, 16, 64, 1024, 4096, 16384, 65536, 262144}; // 0 is full memory
-              ^~~~~~~~~~~~~~~~~~~~~~
-              MENU_TEST_MODE_QUICK
-make: *** [src/subdir.mk:35: src/menu_controller.o] Error 1
-11:43:53 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/main.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-'Finished building: ../src/memtest_controller.c'
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-../src/menu_controller.c:11:14: error: 'MENU_MEMTEST_SIZE_FULL' undeclared here (not in a function); did you mean 'MEMTEST_SIZE_FULL'?
-           = {MENU_MEMTEST_SIZE_FULL, 4, 16, 64, 1024, 4096, 16384, 65536, 262144}; // 0 is full memory
-              ^~~~~~~~~~~~~~~~~~~~~~
-              MEMTEST_SIZE_FULL
-make: *** [src/subdir.mk:35: src/menu_controller.o] Error 1
-11:43:58 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/main.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-'Finished building: ../src/memtest_controller.c'
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-../src/menu_controller.c:11:14: error: 'MENU_MEMTEST_SIZE_FULL' undeclared here (not in a function); did you mean 'MEMTEST_SIZE_FULL'?
-           = {MENU_MEMTEST_SIZE_FULL, 4, 16, 64, 1024, 4096, 16384, 65536, 262144}; // 0 is full memory
-              ^~~~~~~~~~~~~~~~~~~~~~
-              MEMTEST_SIZE_FULL
-make: *** [src/subdir.mk:35: src/menu_controller.o] Error 1
-11:44:08 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  58860	   2616	  23420	  84896	  14ba0	hello.elf
-'Finished building: hello.elf.size'
-' '
-11:44:43 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-'Finished building: ../src/memtest_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  58932	   2616	  23420	  84968	  14be8	hello.elf
-'Finished building: hello.elf.size'
-' '
-11:45:21 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-'Finished building: ../src/memtest_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  58932	   2616	  23420	  84968	  14be8	hello.elf
-'Finished building: hello.elf.size'
-' '
-19:32:23 **** Build of project standalone_bsp_0 ****
-make -k all 
-"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src"
-make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src"
-make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
-make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
-make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_4/src"
-make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_5/src"
-make -C ps7_cortexa9_0/libsrc/gpiops_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/gpio_v4_4/src"
-make -C ps7_cortexa9_0/libsrc/gpio_v4_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/scugic_v4_0/src"
-make -C ps7_cortexa9_0/libsrc/scugic_v4_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
-make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
-make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/standalone_v7_0/src"
-make -C ps7_cortexa9_0/libsrc/standalone_v7_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/uartlite_v3_2/src"
-make -C ps7_cortexa9_0/libsrc/uartlite_v3_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_3/src"
-make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src"
-make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling coresightps_dcc"
-"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src"
-make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling cpu_cortexa9"
-"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
-make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling ddrps"
-"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
-make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling devcfg"
-"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_4/src"
-make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling dmaps"
-"Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_5/src"
-make -C ps7_cortexa9_0/libsrc/gpiops_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling gpiops"
-"Running Make libs in ps7_cortexa9_0/libsrc/gpio_v4_4/src"
-make -C ps7_cortexa9_0/libsrc/gpio_v4_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling gpio"
-"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v4_0/src"
-make -C ps7_cortexa9_0/libsrc/scugic_v4_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling scugic"
-"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
-make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling scutimer"
-"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
-make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling scuwdt"
-"Running Make libs in ps7_cortexa9_0/libsrc/standalone_v7_0/src"
-make -C ps7_cortexa9_0/libsrc/standalone_v7_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling standalone"
-In file included from usleep.c:56:
-xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
- #pragma message ("For the sleep routines, Global timer is being used")
-         ^~~~~~~
-In file included from sleep.c:53:
-xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
- #pragma message ("For the sleep routines, Global timer is being used")
-         ^~~~~~~
-In file included from xil_sleeptimer.c:51:
-xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
- #pragma message ("For the sleep routines, Global timer is being used")
-         ^~~~~~~
-In file included from xtime_l.c:49:
-xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
- #pragma message ("For the sleep routines, Global timer is being used")
-         ^~~~~~~
-"Running Make libs in ps7_cortexa9_0/libsrc/uartlite_v3_2/src"
-make -C ps7_cortexa9_0/libsrc/uartlite_v3_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling uartlite"
-"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_3/src"
-make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling xadcps"
-'Finished building libraries'
-19:32:52 **** Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/main.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-'Finished building: ../src/memtest_controller.c'
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
-' '
-'Building file: ../src/platform.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
-'Finished building: ../src/platform.c'
-' '
-'Building file: ../src/uart_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/uart_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/uart_controller.d" -MT"src/uart_controller.o" -o "src/uart_controller.o" "../src/uart_controller.c"
-../src/uart_controller.c: In function 'uart_write':
-../src/uart_controller.c:21:13: warning: pointer targets in passing argument 1 of 'xil_printf' differ in signedness [-Wpointer-sign]
-  xil_printf(buffer);
-             ^~~~~~
-In file included from ../../standalone_bsp_0/ps7_cortexa9_0/include/xil_io.h:61,
-                 from ../../standalone_bsp_0/ps7_cortexa9_0/include/xuartlite_l.h:69,
-                 from ../src/uart_controller.h:6,
-                 from ../src/uart_controller.c:7:
-../../standalone_bsp_0/ps7_cortexa9_0/include/xil_printf.h:39:6: note: expected 'const char8 *' {aka 'const char *'} but argument is of type 'unsigned char *'
- void xil_printf( const char8 *ctrl1, ...);
-      ^~~~~~~~~~
-../src/uart_controller.c:22:1: warning: control reaches end of non-void function [-Wreturn-type]
- }
- ^
-'Finished building: ../src/uart_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  58932	   2616	  23420	  84968	  14be8	hello.elf
-'Finished building: hello.elf.size'
-' '
-19:34:52 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  59012	   2616	  23420	  85048	  14c38	hello.elf
-'Finished building: hello.elf.size'
-' '
-19:34:56 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  59012	   2616	  23420	  85048	  14c38	hello.elf
-'Finished building: hello.elf.size'
-' '
-19:36:05 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  59108	   2616	  23420	  85144	  14c98	hello.elf
-'Finished building: hello.elf.size'
-' '
-19:36:57 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/main.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-'Finished building: ../src/memtest_controller.c'
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  59108	   2616	  23420	  85144	  14c98	hello.elf
-'Finished building: hello.elf.size'
-' '
-19:38:58 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-'Finished building: ../src/memtest_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  59108	   2616	  23420	  85144	  14c98	hello.elf
-'Finished building: hello.elf.size'
-' '
-19:39:45 **** Incremental Build of configuration Debug for project hello ****
+18:14:58 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for 'main-build'.
-19:40:25 **** Incremental Build of configuration Debug for project hello ****
+18:21:18 **** Auto Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/gpiotest_controller.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/gpiotest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/gpiotest_controller.d" -MT"src/gpiotest_controller.o" -o "src/gpiotest_controller.o" "../src/gpiotest_controller.c"
+'Finished building: ../src/gpiotest_controller.c'
+' '
+'Building target: hello.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/gpiotest_controller.o ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: hello.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size hello.elf  |tee "hello.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  61436	   2632	  23436	  87504	  155d0	hello.elf
+'Finished building: hello.elf.size'
+' '
+18:21:39 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for 'main-build'.
-19:43:04 **** Auto Build of configuration Debug for project hello ****
+18:21:43 **** Auto Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -1266,296 +231,48 @@ a9-linaro-pre-build-step
 arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
 'Finished building: ../src/main.c'
 ' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-../src/memtest_controller.c:90:6: error: conflicting types for 'memtest_performQuickTest'
- void memtest_performQuickTest(unsigned int wordCount, enum QuickTestPatterns mode, int readCount, unsigned int increment)
-      ^~~~~~~~~~~~~~~~~~~~~~~~
-In file included from ../src/memtest_controller.c:7:
-../src/memtest_controller.h:46:6: note: previous declaration of 'memtest_performQuickTest' was here
- void memtest_performQuickTest(unsigned int wordCount, enum QuickTestPatterns mode, int readCount, unsigned int increment, enum MemTestVerbosity verbosity);
-      ^~~~~~~~~~~~~~~~~~~~~~~~
-../src/memtest_controller.c:124:6: error: conflicting types for 'memtest_performDetailTest'
- void memtest_performDetailTest(unsigned int wordCount, enum DetailTestPatterns mode, int readCount, unsigned int increment)
-      ^~~~~~~~~~~~~~~~~~~~~~~~~
-In file included from ../src/memtest_controller.c:7:
-../src/memtest_controller.h:47:6: note: previous declaration of 'memtest_performDetailTest' was here
- void memtest_performDetailTest(unsigned int wordCount, enum DetailTestPatterns mode, int readCount, unsigned int increment, enum MemTestVerbosity verbosity);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~
-make: *** [src/subdir.mk:35: src/memtest_controller.o] Error 1
-19:43:59 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/main.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-../src/memtest_controller.c:90:6: error: conflicting types for 'memtest_performQuickTest'
- void memtest_performQuickTest(unsigned int wordCount, enum QuickTestPatterns mode, int readCount, unsigned int increment)
-      ^~~~~~~~~~~~~~~~~~~~~~~~
-In file included from ../src/memtest_controller.c:7:
-../src/memtest_controller.h:46:6: note: previous declaration of 'memtest_performQuickTest' was here
- void memtest_performQuickTest(unsigned int wordCount, enum QuickTestPatterns mode, int readCount, unsigned int increment, enum MemTestVerbosity verbosity);
-      ^~~~~~~~~~~~~~~~~~~~~~~~
-../src/memtest_controller.c:124:6: error: conflicting types for 'memtest_performDetailTest'
- void memtest_performDetailTest(unsigned int wordCount, enum DetailTestPatterns mode, int readCount, unsigned int increment)
-      ^~~~~~~~~~~~~~~~~~~~~~~~~
-In file included from ../src/memtest_controller.c:7:
-../src/memtest_controller.h:47:6: note: previous declaration of 'memtest_performDetailTest' was here
- void memtest_performDetailTest(unsigned int wordCount, enum DetailTestPatterns mode, int readCount, unsigned int increment, enum MemTestVerbosity verbosity);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~
-make: *** [src/subdir.mk:35: src/memtest_controller.o] Error 1
-19:44:27 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-'Finished building: ../src/memtest_controller.c'
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-../src/menu_controller.c: In function 'menu_awaitInput':
-../src/menu_controller.c:103:6: error: too few arguments to function 'memtest_performDetailTest'
-      memtest_performDetailTest(
-      ^~~~~~~~~~~~~~~~~~~~~~~~~
-In file included from ../src/menu_controller.h:12,
-                 from ../src/menu_controller.c:7:
-../src/memtest_controller.h:47:6: note: declared here
- void memtest_performDetailTest(unsigned int wordCount, enum DetailTestPatterns mode, int readCount, unsigned int increment, enum MemTestVerbosity verbosity);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~
-../src/menu_controller.c:110:6: error: too few arguments to function 'memtest_performQuickTest'
-      memtest_performQuickTest(
-      ^~~~~~~~~~~~~~~~~~~~~~~~
-In file included from ../src/menu_controller.h:12,
-                 from ../src/menu_controller.c:7:
-../src/memtest_controller.h:46:6: note: declared here
- void memtest_performQuickTest(unsigned int wordCount, enum QuickTestPatterns mode, int readCount, unsigned int increment, enum MemTestVerbosity verbosity);
-      ^~~~~~~~~~~~~~~~~~~~~~~~
-make: *** [src/subdir.mk:35: src/menu_controller.o] Error 1
-19:44:59 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-../src/menu_controller.c: In function 'menu_awaitInput':
-../src/menu_controller.c:103:6: error: too few arguments to function 'memtest_performDetailTest'
-      memtest_performDetailTest(
-      ^~~~~~~~~~~~~~~~~~~~~~~~~
-In file included from ../src/menu_controller.h:12,
-                 from ../src/menu_controller.c:7:
-../src/memtest_controller.h:47:6: note: declared here
- void memtest_performDetailTest(unsigned int wordCount, enum DetailTestPatterns mode, int readCount, unsigned int increment, enum MemTestVerbosity verbosity);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~
-../src/menu_controller.c:110:6: error: too few arguments to function 'memtest_performQuickTest'
-      memtest_performQuickTest(
-      ^~~~~~~~~~~~~~~~~~~~~~~~
-In file included from ../src/menu_controller.h:12,
-                 from ../src/menu_controller.c:7:
-../src/memtest_controller.h:46:6: note: declared here
- void memtest_performQuickTest(unsigned int wordCount, enum QuickTestPatterns mode, int readCount, unsigned int increment, enum MemTestVerbosity verbosity);
-      ^~~~~~~~~~~~~~~~~~~~~~~~
-make: *** [src/subdir.mk:35: src/menu_controller.o] Error 1
-19:45:22 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
-' '
 'Building target: hello.elf'
 'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/gpiotest_controller.o ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
 'Finished building target: hello.elf'
 ' '
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size hello.elf  |tee "hello.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  59172	   2616	  23420	  85208	  14cd8	hello.elf
+  61436	   2632	  23436	  87504	  155d0	hello.elf
 'Finished building: hello.elf.size'
 ' '
-19:45:33 **** Incremental Build of configuration Debug for project hello ****
+18:21:55 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for 'main-build'.
-19:53:29 **** Auto Build of configuration Debug for project hello ****
+18:22:32 **** Auto Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
-'Building file: ../src/menu_controller.c'
+'Building file: ../src/gpiotest_controller.c'
 'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/gpiotest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/gpiotest_controller.d" -MT"src/gpiotest_controller.o" -o "src/gpiotest_controller.o" "../src/gpiotest_controller.c"
+'Finished building: ../src/gpiotest_controller.c'
 ' '
 'Building target: hello.elf'
 'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/gpiotest_controller.o ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
 'Finished building target: hello.elf'
 ' '
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size hello.elf  |tee "hello.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  59252	   2616	  23420	  85288	  14d28	hello.elf
+  61436	   2632	  23436	  87504	  155d0	hello.elf
 'Finished building: hello.elf.size'
 ' '
-19:53:37 **** Incremental Build of configuration Debug for project hello ****
+18:22:39 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for 'main-build'.
-20:02:38 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for 'main-build'.
-20:03:32 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for 'main-build'.
-20:03:49 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for 'main-build'.
-20:06:02 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/main.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-'Finished building: ../src/memtest_controller.c'
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  59252	   2616	  23420	  85288	  14d28	hello.elf
-'Finished building: hello.elf.size'
-' '
-20:06:40 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-'Finished building: ../src/memtest_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  59252	   2616	  23420	  85288	  14d28	hello.elf
-'Finished building: hello.elf.size'
-' '
-20:07:25 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-../src/memtest_controller.c: In function 'memtest_getNextQuickPattern':
-../src/memtest_controller.c:49:8: error: 'QUICKPATTERN_A' undeclared (first use in this function); did you mean 'QUICKPATTERN_A5'?
-   case QUICKPATTERN_A:
-        ^~~~~~~~~~~~~~
-        QUICKPATTERN_A5
-../src/memtest_controller.c:49:8: note: each undeclared identifier is reported only once for each function it appears in
-make: *** [src/subdir.mk:35: src/memtest_controller.o] Error 1
-20:07:32 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/main.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building file: ../src/memtest_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memtest_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memtest_controller.d" -MT"src/memtest_controller.o" -o "src/memtest_controller.o" "../src/memtest_controller.c"
-'Finished building: ../src/memtest_controller.c'
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  59252	   2616	  23420	  85288	  14d28	hello.elf
-'Finished building: hello.elf.size'
-' '
-20:07:55 **** Auto Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/main.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building file: ../src/menu_controller.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/menu_controller.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/menu_controller.d" -MT"src/menu_controller.o" -o "src/menu_controller.o" "../src/menu_controller.c"
-'Finished building: ../src/menu_controller.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "hello.elf"  ./src/main.o ./src/memtest_controller.o ./src/menu_controller.o ./src/platform.o ./src/uart_controller.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  59252	   2616	  23420	  85288	  14d28	hello.elf
-'Finished building: hello.elf.size'
-' '
-20:22:49 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for 'main-build'.
-20:22:54 **** Incremental Build of configuration Debug for project hello ****
+18:23:26 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '

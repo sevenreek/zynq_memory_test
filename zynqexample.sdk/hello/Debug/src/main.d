@@ -17,7 +17,9 @@ src/main.o src/main.o: ../src/main.c ../src/platform.h \
  ../../standalone_bsp_0/ps7_cortexa9_0/include/xreg_cortexa9.h \
  ../../standalone_bsp_0/ps7_cortexa9_0/include/xpseudo_asm_gcc.h \
  ../../standalone_bsp_0/ps7_cortexa9_0/include/xil_printf.h \
- ../src/memtest_controller.h
+ ../src/memtest_controller.h ../src/gpiotest_controller.h \
+ ../../standalone_bsp_0/ps7_cortexa9_0/include/xgpio.h \
+ ../../standalone_bsp_0/ps7_cortexa9_0/include/xgpio_l.h
 
 ../src/platform.h:
 
@@ -60,3 +62,9 @@ src/main.o src/main.o: ../src/main.c ../src/platform.h \
 ../../standalone_bsp_0/ps7_cortexa9_0/include/xil_printf.h:
 
 ../src/memtest_controller.h:
+
+../src/gpiotest_controller.h:
+
+../../standalone_bsp_0/ps7_cortexa9_0/include/xgpio.h:
+
+../../standalone_bsp_0/ps7_cortexa9_0/include/xgpio_l.h:
