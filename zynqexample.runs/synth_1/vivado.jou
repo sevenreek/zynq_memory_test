@@ -2,11 +2,11 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Sun Dec  8 14:29:48 2019
-# Process ID: 3836
-# Current directory: E:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.runs/synth_1
+# Start of session at: Wed Dec 11 11:08:51 2019
+# Process ID: 5668
+# Current directory: C:/Development/VHDL/combined_zynq_test/zynq_memory_test/zynqexample.runs/synth_1
 # Command line: vivado.exe -log System_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source System_wrapper.tcl
-# Log file: E:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.runs/synth_1/System_wrapper.vds
-# Journal file: E:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.runs/synth_1\vivado.jou
+# Log file: C:/Development/VHDL/combined_zynq_test/zynq_memory_test/zynqexample.runs/synth_1/System_wrapper.vds
+# Journal file: C:/Development/VHDL/combined_zynq_test/zynq_memory_test/zynqexample.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source System_wrapper.tcl -notrace

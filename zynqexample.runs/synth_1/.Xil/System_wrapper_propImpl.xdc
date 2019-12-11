@@ -1,5 +1,5 @@
-set_property SRC_FILE_INFO {cfile:E:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.srcs/constrs_1/new/gpio_test.xdc rfile:../../../zynqexample.srcs/constrs_1/new/gpio_test.xdc id:1} [current_design]
-set_property SRC_FILE_INFO {cfile:E:/Development/VHDL/zynq_main_test/zynq_memory_test/zynqexample.srcs/constrs_1/MarsZX3_Starter.xdc rfile:../../../zynqexample.srcs/constrs_1/MarsZX3_Starter.xdc id:2} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Development/VHDL/combined_zynq_test/zynq_memory_test/zynqexample.srcs/constrs_1/new/gpio_test.xdc rfile:../../../zynqexample.srcs/constrs_1/new/gpio_test.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Development/VHDL/combined_zynq_test/zynq_memory_test/zynqexample.srcs/constrs_1/MarsZX3_Starter.xdc rfile:../../../zynqexample.srcs/constrs_1/MarsZX3_Starter.xdc id:2} [current_design]
 set_property src_info {type:XDC file:1 line:3 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN N19 [get_ports {gpio_rtl_0_tri_io[0]}]
 set_property src_info {type:XDC file:1 line:4 export:INPUT save:INPUT read:READ} [current_design]
