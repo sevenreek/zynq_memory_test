@@ -28,7 +28,8 @@ enum QuickTestPatterns {
 	QUICKPATTERN_ONES,
 	QUICKPATTERN_DEADBEEF,
 	QUICKPATTERN_WALKINGONE,
-	QUICKPATTERN_A
+	QUICKPATTERN_A,
+	QUICKPATTERN_ADDRESS
 };
 enum DetailTestPatterns {
 	DETAILPATTERN_A5ALTERNATING,
@@ -42,7 +43,7 @@ enum DetailTestPatterns {
 void metest_setWordCount(unsigned int wordCount);
 void memtest_writeRegister(unsigned int address, unsigned int value);
 unsigned int memtest_readRegister(unsigned int address);
-unsigned int memtest_getNextQuickPattern(unsigned int counter, enum QuickTestPatterns mode);
+unsigned int memtest_getNextQuickPattern(unsigned int counter, enum QuickTestPatterns mode, unsigned int currentAddress);
 unsigned int memtest_getNextDetailPattern(unsigned int memoryPoint, unsigned char concurrentTest, enum DetailTestPatterns mode);
 void memtest_performQuickTest(unsigned int wordCount, enum QuickTestPatterns mode, int readCount, unsigned int increment, enum MemTestVerbosity verbosity);
 void memtest_performDetailTest(unsigned int wordCount, enum DetailTestPatterns mode, int readCount, unsigned int increment, enum MemTestVerbosity verbosity);

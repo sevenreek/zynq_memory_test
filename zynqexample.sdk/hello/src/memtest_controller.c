@@ -30,7 +30,7 @@ unsigned int memtest_readRegister(unsigned int address)
 	return *((volatile unsigned int*)address);
 }
 
-unsigned int memtest_getNextQuickPattern(unsigned int counter, enum QuickTestPatterns mode)
+unsigned int memtest_getNextQuickPattern(unsigned int counter, enum QuickTestPatterns mode, unsigned int currentAddress)
 {
 	switch(mode)
 	{
@@ -48,6 +48,9 @@ unsigned int memtest_getNextQuickPattern(unsigned int counter, enum QuickTestPat
 		break;
 		case QUICKPATTERN_A:
 			return 0xAAAAAAAA;
+		break;
+		case QUICKPATTERN_ADDRESS:
+			return currentAddress;
 		break;
 		default:
 			return 0x0;
@@ -97,7 +100,7 @@ void memtest_performQuickTest(unsigned int wordCount, enum QuickTestPatterns mod
 	for(unsigned int counter = 0; counter < wordCount; counter+=increment)
 	{
 		unsigned int currentAddress =  MEMORY_BASE_ADDRESS + sizeof(unsigned int)*counter;
-		unsigned int pattern = memtest_getNextQuickPattern(counter, mode);
+		unsigned int pattern = memtest_getNextQuickPattern(counter, mode, currentAddress);
 		memtest_writeRegister(currentAddress, pattern);
 	}
 	unsigned int errorCount = 0;
@@ -107,7 +110,7 @@ void memtest_performQuickTest(unsigned int wordCount, enum QuickTestPatterns mod
 		for(currentReadCount = 0; currentReadCount < readCount; currentReadCount++)
 		{
 			unsigned int currentAddress =  MEMORY_BASE_ADDRESS + sizeof(unsigned int)*counter;
-			unsigned int expectedPattern = memtest_getNextQuickPattern(counter, mode);
+			unsigned int expectedPattern = memtest_getNextQuickPattern(counter, mode, currentAddress);
 			unsigned int writtenPattern = memtest_readRegister(currentAddress);
 			if(expectedPattern != writtenPattern)
 			{
