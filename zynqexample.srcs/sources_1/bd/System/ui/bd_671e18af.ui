@@ -2,29 +2,29 @@
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0.19  2019-03-26 bk=1.5019 VDI=41 GEI=35 GUI=JA:9.0 non-TLS
 #  -string -flagsOSRD
-preplace port DDR -pg 1 -lvl 4 -x 1350 -y 40 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -lvl 4 -x 1350 -y 330 -defaultsOSRD
-preplace port UART0_TX -pg 1 -lvl 0 -x -10 -y 540 -defaultsOSRD
-preplace port UART0_RX -pg 1 -lvl 4 -x 1350 -y 410 -defaultsOSRD
-preplace portBus Led_N -pg 1 -lvl 4 -x 1350 -y 200 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 1 -x 460 -y 100 -defaultsOSRD
-preplace inst axi_gpio_0 -pg 1 -lvl 3 -x 1190 -y 190 -defaultsOSRD
-preplace inst ps7_0_axi_periph -pg 1 -lvl 2 -x 860 -y 160 -defaultsOSRD
-preplace inst rst_ps7_0_50M -pg 1 -lvl 1 -x 460 -y 440 -defaultsOSRD
-preplace inst axi_uartlite_0 -pg 1 -lvl 2 -x 860 -y 400 -defaultsOSRD
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 10 200 680 -30 1050
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 20 210 660
-preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 1 2 700 -20 1030
-preplace netloc axi_gpio_0_gpio_io_o 1 3 1 NJ 200
-preplace netloc UART0_TX_1 1 0 3 N 540 NJ 540 1010
-preplace netloc axi_uartlite_0_tx 1 2 2 N 410 NJ
-preplace netloc processing_system7_0_FIXED_IO 1 1 3 660J -40 NJ -40 1330J
-preplace netloc ps7_0_axi_periph_M00_AXI 1 2 1 1020 140n
-preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 690 60n
-preplace netloc processing_system7_0_DDR 1 1 3 670J -10 1040J 40 NJ
-preplace netloc ps7_0_axi_periph_M01_AXI 1 1 2 710 0 1010
-levelinfo -pg 1 -10 460 860 1190 1350
-pagesize -pg 1 -db -bbox -sgen -140 -200 1480 770
+preplace port DDR -pg 1 -lvl 4 -x 1070 -y 60 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 4 -x 1070 -y 80 -defaultsOSRD
+preplace port UART0_TX -pg 1 -lvl 0 -x 0 -y 410 -defaultsOSRD
+preplace port UART0_RX -pg 1 -lvl 4 -x 1070 -y 510 -defaultsOSRD
+preplace portBus Led_N -pg 1 -lvl 4 -x 1070 -y 250 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 1 -x 230 -y 100 -defaultsOSRD
+preplace inst axi_gpio_0 -pg 1 -lvl 3 -x 910 -y 240 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 2 -x 600 -y 240 -defaultsOSRD
+preplace inst rst_ps7_0_50M -pg 1 -lvl 1 -x 230 -y 510 -defaultsOSRD
+preplace inst axi_uartlite_0 -pg 1 -lvl 3 -x 910 -y 500 -defaultsOSRD
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 20 210 440 400 760
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 30 200 430
+preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 1 2 450 420 770
+preplace netloc axi_gpio_0_gpio_io_o 1 3 1 NJ 250
+preplace netloc UART0_TX_1 1 0 4 NJ 410 NJ 410 NJ 410 1050
+preplace netloc axi_uartlite_0_tx 1 3 1 NJ 510
+preplace netloc ps7_0_axi_periph_M01_AXI 1 2 1 750 240n
+preplace netloc processing_system7_0_FIXED_IO 1 1 3 NJ 80 NJ 80 NJ
+preplace netloc processing_system7_0_DDR 1 1 3 NJ 60 NJ 60 NJ
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 450 100n
+preplace netloc ps7_0_axi_periph_M00_AXI 1 2 1 N 220
+levelinfo -pg 1 0 230 600 910 1070
+pagesize -pg 1 -db -bbox -sgen -130 0 1200 610
 "
 }
 {

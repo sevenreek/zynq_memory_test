@@ -189,6 +189,12 @@ char* menu_getTestModeString(char mode, char pattern)
 			case QUICKPATTERN_WALKINGONE:
 				return "WALKING ONE";
 			break;
+			case QUICKPATTERN_A:
+				return "A";
+			break;
+			case QUICKPATTERN_ADDRESS:
+				return "ADDRESS";
+			break;
 			default: return "???";
 			break;
 		}

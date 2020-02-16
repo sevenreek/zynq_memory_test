@@ -101,6 +101,11 @@ void memtest_performQuickTest(unsigned int wordCount, enum QuickTestPatterns mod
 	{
 		unsigned int currentAddress =  MEMORY_BASE_ADDRESS + sizeof(unsigned int)*counter;
 		unsigned int pattern = memtest_getNextQuickPattern(counter, mode, currentAddress);
+#if MEMTEST_SIMULATED_ERROR_PROBABILITY_PROMILE > 0
+		float errorPercent = (float)rand()/RAND_MAX*1000;
+		if(errorPercent<MEMTEST_SIMULATED_ERROR_PROBABILITY_PROMILE)
+			pattern ^= rand();
+#endif
 		memtest_writeRegister(currentAddress, pattern);
 	}
 	unsigned int errorCount = 0;

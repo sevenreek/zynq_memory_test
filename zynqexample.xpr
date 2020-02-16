@@ -72,11 +72,11 @@
         <CompFileExtendedInfo CompFileName="System.bd" FileRelPathName="ip/System_processing_system7_0_0/System_processing_system7_0_0.xci">
           <Proxy FileSetName="System_processing_system7_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="System.bd" FileRelPathName="ip/System_axi_uartlite_0_0/System_axi_uartlite_0_0.xci">
-          <Proxy FileSetName="System_axi_uartlite_0_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="System.bd" FileRelPathName="ip/System_axi_gpio_0_0/System_axi_gpio_0_0.xci">
           <Proxy FileSetName="System_axi_gpio_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="System.bd" FileRelPathName="ip/System_axi_uartlite_0_0/System_axi_uartlite_0_0.xci">
+          <Proxy FileSetName="System_axi_uartlite_0_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/System/hdl/System_wrapper.vhd">
